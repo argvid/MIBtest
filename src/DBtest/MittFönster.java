@@ -149,6 +149,7 @@ public class MittFönster extends javax.swing.JFrame {
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         // TODO add your handling code here:  
         try {
+            System.out.print("hello!");
             anvandareInput = textPane.getText();
             String inputLosenord = new String(passwordField.getPassword());
 
