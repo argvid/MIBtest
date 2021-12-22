@@ -103,15 +103,14 @@ public class MittFönster extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(checkBox))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel2)
-                                .addGap(43, 43, 43))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(jLabel1)
-                                .addGap(18, 18, 18)))
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(29, 29, 29)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                             .addComponent(passwordField))))
@@ -130,8 +129,8 @@ public class MittFönster extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button)
@@ -145,17 +144,70 @@ public class MittFönster extends javax.swing.JFrame {
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         // TODO add your handling code here:  
         try {
-            System.out.print("hello!");
-            System.out.print("hello!");
-            System.out.print("willeboi!");
-            
-            
-            
-
+            boolean agent = false;
+            boolean alien = false;
+            boolean admin = false;
             anvandareInput = textPane.getText();
             String inputLosenord = new String(passwordField.getPassword());
+            ArrayList<String> agenter = new ArrayList<String>();
+            String fragaNamn = "Select namn from agent";
+            agenter = idb.fetchColumn(fragaNamn);
+            for (String agentSpecifik : agenter) {
+                if (agentSpecifik.contentEquals(anvandareInput)) {                   
+                    String fragaAdmin = "Select administrator from agent where namn = '" + anvandareInput + "'";
+                    String admins = idb.fetchSingle(fragaAdmin);
+                    if(admins.equals("J")){
+                        admin = true;
+                    }
 
-            ArrayList<String> anvandare = new ArrayList<String>();
+                    agent = true;
+                }
+            }
+            ArrayList<String> aliens = new ArrayList<String>();
+            String alienFraga = "SELECT namn FROM alien";
+            aliens = idb.fetchColumn(alienFraga);
+            for (String alienSpecifik : aliens) {
+                if (alienSpecifik.contentEquals(anvandareInput)) {
+                    alien = true;
+                }
+            }
+            if (agent) {
+                ArrayList<String> losenord = new ArrayList<String>();
+                String losenordFraga = "Select Losenord from Agent where Namn = '" + anvandareInput + "'";
+                losenord = idb.fetchColumn(losenordFraga);
+                for (String losenordet : losenord) {
+
+                    if (losenordet.contentEquals(inputLosenord)) {
+                        //öppnar ett nytt fönster ifall lösenordet stämmer
+                        if(admin){
+                            new AdminPage(idb, anvandareInput).setVisible(true);
+                        }
+                        else{
+                        new AgentPage(idb, anvandareInput).setVisible(true);
+                        }
+
+                    }
+
+                }
+            } else if (alien = true) {
+                ArrayList<String> losenord = new ArrayList<String>();
+                String losenordFraga = "Select Losenord from alien where Namn = '" + anvandareInput + "'";
+                losenord = idb.fetchColumn(losenordFraga);
+                for (String losenordet : losenord) {
+
+                    if (losenordet.contentEquals(inputLosenord)) {
+                        //öppnar ett nytt fönster ifall lösenordet stämmer
+                        new AlienPage(idb, anvandareInput).setVisible(true);
+
+                    }
+
+                }
+
+            } else {
+                System.out.println("hej");
+            }
+
+            /*ArrayList<String> anvandare = new ArrayList<String>();
             String fraga = "Select namn from agent";
             anvandare = idb.fetchColumn(fraga);
 
@@ -179,7 +231,7 @@ public class MittFönster extends javax.swing.JFrame {
                 }
 
             }
-
+             */
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -209,10 +261,7 @@ public class MittFönster extends javax.swing.JFrame {
         
          */
     }//GEN-LAST:event_buttonActionPerformed
-    public String getAnvandare() {
 
-        return anvandareInput;
-    }
     private void textPaneComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_textPaneComponentAdded
         // TODO add your handling code here:
 
