@@ -147,6 +147,7 @@ public class MittFönster extends javax.swing.JFrame {
         try {
             System.out.print("hello!");
             System.out.print("hello!");
+            System.out.print("tjena!");
 
             anvandareInput = textPane.getText();
             String inputLosenord = new String(passwordField.getPassword());
