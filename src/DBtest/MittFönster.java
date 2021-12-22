@@ -25,7 +25,6 @@ public class MittFönster extends javax.swing.JFrame {
     private String id;
     private String select;
     private static String anvandareInput;
-    
 
     /**
      * Creates new form MittFönster
@@ -34,11 +33,8 @@ public class MittFönster extends javax.swing.JFrame {
         initComponents();
 
         idb = iidb;
-        
 
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,6 +146,8 @@ public class MittFönster extends javax.swing.JFrame {
         // TODO add your handling code here:  
         try {
             System.out.print("hello!");
+            System.out.print("hello!");
+
             anvandareInput = textPane.getText();
             String inputLosenord = new String(passwordField.getPassword());
 
@@ -158,7 +156,7 @@ public class MittFönster extends javax.swing.JFrame {
             anvandare = idb.fetchColumn(fraga);
 
             for (String anvandarNamn : anvandare) {
-                if (anvandarNamn.contentEquals(anvandareInput)) {                    
+                if (anvandarNamn.contentEquals(anvandareInput)) {
                     //skapa en arraylist med databas värden.
                     ArrayList<String> losenord = new ArrayList<String>();
                     String losenordFraga = "Select Losenord from Agent where Namn = '" + anvandareInput + "'";
@@ -168,8 +166,7 @@ public class MittFönster extends javax.swing.JFrame {
 
                         if (losenordet.contentEquals(inputLosenord)) {
                             //öppnar ett nytt fönster ifall lösenordet stämmer
-                            new AgentPage(idb, anvandareInput).setVisible(true);                           
-                            
+                            new AgentPage(idb, anvandareInput).setVisible(true);
 
                         }
 
@@ -219,11 +216,9 @@ public class MittFönster extends javax.swing.JFrame {
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
         // TODO add your handling code here:
-        if(checkBox.isSelected()){
-            passwordField.setEchoChar((char)0);
-        }
-        else
-        {
+        if (checkBox.isSelected()) {
+            passwordField.setEchoChar((char) 0);
+        } else {
             passwordField.setEchoChar('*');
         }
     }//GEN-LAST:event_checkBoxActionPerformed
