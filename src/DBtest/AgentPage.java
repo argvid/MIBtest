@@ -34,6 +34,7 @@ public class AgentPage extends javax.swing.JFrame {
         idb = iidb;
         agent = new ArrayList<AgentPage>();
         fillPlatsCmb();
+        fillOmradeCmb();
     }
 
     /**
@@ -67,8 +68,14 @@ public class AgentPage extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         platsButton = new javax.swing.JButton();
         rasButton = new javax.swing.JButton();
-        regisreradButton = new javax.swing.JButton();
+        registreradButton = new javax.swing.JButton();
         logOut = new javax.swing.JButton();
+        specAlienButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        specAlienTextBox = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        omradeCmb = new javax.swing.JComboBox<>();
+        omradeButton = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -156,12 +163,35 @@ public class AgentPage extends javax.swing.JFrame {
             }
         });
 
-        regisreradButton.setText(">");
+        registreradButton.setText(">");
+        registreradButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registreradButtonActionPerformed(evt);
+            }
+        });
 
         logOut.setText("Logga ut");
         logOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutActionPerformed(evt);
+            }
+        });
+
+        specAlienButton.setText(">");
+        specAlienButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specAlienButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Se info om specifik alien:");
+
+        jLabel10.setText("Se områdeschef över :");
+
+        omradeButton.setText(">");
+        omradeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                omradeButtonActionPerformed(evt);
             }
         });
 
@@ -198,26 +228,41 @@ public class AgentPage extends javax.swing.JFrame {
                                 .addComponent(alienButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)
+                                .addGap(71, 71, 71)
+                                .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8))
-                            .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rasButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)
+                                .addGap(85, 85, 85)
+                                .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(regisreradButton))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(platsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rasButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(platsButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(specAlienTextBox)
+                                            .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(specAlienButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(omradeButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(registreradButton)))))
                         .addGap(36, 36, 36)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -248,26 +293,36 @@ public class AgentPage extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(alienButton)
-                            .addComponent(jLabel4)))
+                            .addComponent(jLabel4))
+                        .addGap(51, 51, 51)
+                        .addComponent(logOut))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(platsButton))
-                        .addGap(28, 28, 28)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(rasButton))
-                        .addGap(29, 29, 29)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(regisreradButton))))
-                .addGap(51, 51, 51)
-                .addComponent(logOut))
+                            .addComponent(registreradButton))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(specAlienButton)
+                            .addComponent(specAlienTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(omradeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(omradeButton)))))
         );
 
         pack();
@@ -338,6 +393,19 @@ public class AgentPage extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
+        private void fillOmradeCmb() {
+        try {
+            ArrayList<String> omradeLista = new ArrayList<String>();
+            String omradeFraga = "SELECT Benamning FROM omrade";
+            omradeLista = idb.fetchColumn(omradeFraga);
+            for (String omrade : omradeLista) {
+                omradeCmb.addItem(omrade);
+
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
     private void alienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienButtonActionPerformed
         // TODO add your handling code here:
         new RegistreraAlien(idb).setVisible(true);
@@ -368,6 +436,26 @@ public class AgentPage extends javax.swing.JFrame {
         setVisible(false);
         anvandare = "";
     }//GEN-LAST:event_logOutActionPerformed
+
+    private void registreradButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreradButtonActionPerformed
+        // TODO add your handling code here:
+        String ettDatum = forstaDatum.getText();
+        String tvaDatum = andraDatum.getText();
+
+        new AlienMellanDatum(idb, ettDatum, tvaDatum).setVisible(true);
+    }//GEN-LAST:event_registreradButtonActionPerformed
+
+    private void specAlienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specAlienButtonActionPerformed
+        // TODO add your handling code here:
+        String alien = specAlienTextBox.getText();
+        new SpecAlien(idb, alien).setVisible(true);
+    }//GEN-LAST:event_specAlienButtonActionPerformed
+
+    private void omradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeButtonActionPerformed
+        // TODO add your handling code here:
+        String ettOmrade = omradeCmb.getSelectedItem().toString();
+        new OmradesChef(idb, ettOmrade).setVisible(true);
+    }//GEN-LAST:event_omradeButtonActionPerformed
     private void updateLabel(String anvandare) {
         label.setText("Välkommen " + anvandare);
     }
@@ -417,6 +505,7 @@ public class AgentPage extends javax.swing.JFrame {
     private javax.swing.JTextField andraLosenordField;
     private javax.swing.JTextField forstaDatum;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -424,15 +513,20 @@ public class AgentPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label;
     private javax.swing.JButton logOut;
+    private javax.swing.JButton omradeButton;
+    private javax.swing.JComboBox<String> omradeCmb;
     private javax.swing.JButton platsButton;
     private javax.swing.JComboBox<String> platsCmb;
     private javax.swing.JButton rasButton;
     private javax.swing.JComboBox<String> rasCmb;
-    private javax.swing.JButton regisreradButton;
+    private javax.swing.JButton registreradButton;
+    private javax.swing.JButton specAlienButton;
+    private javax.swing.JTextField specAlienTextBox;
     private javax.swing.JButton utrustningButton;
     private javax.swing.JTextField utrustningField;
     // End of variables declaration//GEN-END:variables
