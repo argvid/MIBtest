@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -22,6 +23,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
      */
     private static InfDB idb;
     private String platsensBenamning;
+    //private String regex;
 
     public RegistreraAlien(InfDB iidb) {
         initComponents();
@@ -195,6 +197,12 @@ public class RegistreraAlien extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
+
+    /*public boolean matches(String regex, String input) {
+        //System.out.println(input.matches("[a-zA-Z]+"));
+        input.matches("[a-zA-Z]+");
+        return Pattern.matches(regex, input);
+    }*/
     private void skickaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skickaButtonActionPerformed
         // TODO add your handling code here:
 
@@ -207,12 +215,12 @@ public class RegistreraAlien extends javax.swing.JFrame {
             LocalDate tid_osynlig = LocalDate.now();
             System.out.println(tid_osynlig);
 
-            String losenord_synlig = new String (losenField.getPassword());
+            String losenord_synlig = new String(losenField.getPassword());
             System.out.println(losenord_synlig);
 
             //----------------------------------------
             String namn_synlig = namnField.getText();
-            System.out.println(namn_synlig);
+            //matches(namn_synlig);
 
             //---------------------------------------
             String ansAgent = ansvarigAgentField.getText();
@@ -235,17 +243,16 @@ public class RegistreraAlien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_skickaButtonActionPerformed
 
+
     private void losenFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_losenFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_losenFieldActionPerformed
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
         // TODO add your handling code here:
-        if(checkBox.isSelected()){
-            losenField.setEchoChar((char)0);
-        }
-        else
-        {
+        if (checkBox.isSelected()) {
+            losenField.setEchoChar((char) 0);
+        } else {
             losenField.setEchoChar('*');
         }
     }//GEN-LAST:event_checkBoxActionPerformed
@@ -277,10 +284,13 @@ public class RegistreraAlien extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        /*RegistreraAlien words = new RegistreraAlien(idb);
+        words.matches("[A-Za-zåäö]+", "test");*/
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 new RegistreraAlien(idb).setVisible(true);
             }
         });

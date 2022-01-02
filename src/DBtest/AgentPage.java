@@ -10,6 +10,8 @@ import oru.inf.InfDB;
 import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -22,19 +24,24 @@ public class AgentPage extends javax.swing.JFrame {
     private static InfDB idb;
     private ArrayList<AgentPage> agent;
     private static String anvandare;
+    private static boolean admin;
+
+    private static java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 
     /**
      * Creates new form AgentPAge
      */
-    public AgentPage(InfDB iidb, String anvandare) {
+    public AgentPage(InfDB iidb, String anvandare, boolean admin) {
         initComponents();
-
+        this.admin = admin;
         updateLabel(anvandare);
         this.anvandare = anvandare;
         idb = iidb;
         agent = new ArrayList<AgentPage>();
         fillPlatsCmb();
         fillOmradeCmb();
+        setAdminButtonVisibility();
+        
     }
 
     /**
@@ -76,6 +83,8 @@ public class AgentPage extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         omradeCmb = new javax.swing.JComboBox<>();
         omradeButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        adminButton = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -147,6 +156,15 @@ public class AgentPage extends javax.swing.JFrame {
 
         jLabel7.setText("Aliens registrerade mellan:");
 
+        forstaDatum.setText("datum");
+        forstaDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forstaDatumActionPerformed(evt);
+            }
+        });
+
+        andraDatum.setText("datum");
+
         jLabel8.setText("och");
 
         platsButton.setText(">");
@@ -195,6 +213,16 @@ public class AgentPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel11.setText("(Format: åååå-mm-dd)");
+
+        adminButton.setText("Adminfunktioner");
+        adminButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,14 +247,14 @@ public class AgentPage extends javax.swing.JFrame {
                                     .addComponent(utrustningField, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                     .addComponent(andraLosenordField))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(utrustningButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(andraLosenordButton)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(utrustningButton, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                                    .addComponent(andraLosenordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(alienButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -246,23 +274,25 @@ public class AgentPage extends javax.swing.JFrame {
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel10))
                                 .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(specAlienTextBox)
-                                            .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(specAlienButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(omradeButton, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel8)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(registreradButton)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(specAlienTextBox)
+                                                .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(specAlienButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(omradeButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel8)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(registreradButton))))))
                         .addGap(36, 36, 36)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -270,7 +300,10 @@ public class AgentPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logOut))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(logOut)
+                        .addGap(18, 18, 18)
+                        .addComponent(adminButton)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -295,7 +328,9 @@ public class AgentPage extends javax.swing.JFrame {
                             .addComponent(alienButton)
                             .addComponent(jLabel4))
                         .addGap(51, 51, 51)
-                        .addComponent(logOut))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(logOut)
+                            .addComponent(adminButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,7 +348,9 @@ public class AgentPage extends javax.swing.JFrame {
                             .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(registreradButton))
-                        .addGap(23, 23, 23)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(specAlienButton)
@@ -393,7 +430,8 @@ public class AgentPage extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
-        private void fillOmradeCmb() {
+
+    private void fillOmradeCmb() {
         try {
             ArrayList<String> omradeLista = new ArrayList<String>();
             String omradeFraga = "SELECT Benamning FROM omrade";
@@ -439,10 +477,28 @@ public class AgentPage extends javax.swing.JFrame {
 
     private void registreradButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreradButtonActionPerformed
         // TODO add your handling code here:
+        boolean rattFormatForstaDatum = false;
+        boolean rattFormatAndraDatum = false;
+
         String ettDatum = forstaDatum.getText();
         String tvaDatum = andraDatum.getText();
+        try {
+            java.util.Date ret = sdf.parse(ettDatum.trim());
+            java.util.Date ret2 = sdf.parse(tvaDatum.trim());
+            if (sdf.format(ret).equals(ettDatum.trim()) && sdf.format(ret2).equals(tvaDatum.trim())) {
+                rattFormatForstaDatum = true;
+                rattFormatAndraDatum = true;
+            }
+            if (rattFormatForstaDatum == true & rattFormatAndraDatum == true) {
+                System.out.println(ettDatum);
+                new AlienMellanDatum(idb, ettDatum, tvaDatum).setVisible(true);
+            }
+        } catch (ParseException e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Datumet måste vara i rätt format!");
+        }
 
-        new AlienMellanDatum(idb, ettDatum, tvaDatum).setVisible(true);
+
     }//GEN-LAST:event_registreradButtonActionPerformed
 
     private void specAlienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specAlienButtonActionPerformed
@@ -456,6 +512,22 @@ public class AgentPage extends javax.swing.JFrame {
         String ettOmrade = omradeCmb.getSelectedItem().toString();
         new OmradesChef(idb, ettOmrade).setVisible(true);
     }//GEN-LAST:event_omradeButtonActionPerformed
+
+    private void forstaDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forstaDatumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forstaDatumActionPerformed
+    private void setAdminButtonVisibility() {
+        if (admin) {
+            adminButton.setVisible(true);
+        } else if(!admin) {
+            adminButton.setVisible(false);
+
+        }
+    }
+    private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
+        // TODO add your handling code here:
+        new AdminPage(idb, anvandare).setVisible(true);
+    }//GEN-LAST:event_adminButtonActionPerformed
     private void updateLabel(String anvandare) {
         label.setText("Välkommen " + anvandare);
     }
@@ -492,13 +564,14 @@ public class AgentPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgentPage(idb, anvandare).setVisible(true);
+                new AgentPage(idb, anvandare, admin).setVisible(true);
             }
         });
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adminButton;
     private javax.swing.JButton alienButton;
     private javax.swing.JTextField andraDatum;
     private javax.swing.JButton andraLosenordButton;
@@ -506,6 +579,7 @@ public class AgentPage extends javax.swing.JFrame {
     private javax.swing.JTextField forstaDatum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

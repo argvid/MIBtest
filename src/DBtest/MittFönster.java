@@ -157,8 +157,8 @@ public class MittFönster extends javax.swing.JFrame {
                 if (agentSpecifik.contentEquals(anvandareInput)) {
                     //kollar ifall agenten är en ADMIN
                     String fragaAdmin = "Select administrator from agent where namn = '" + anvandareInput + "'";
-                    String admins = idb.fetchSingle(fragaAdmin);
-                    if (admins.equals("J")) {
+                    String adminStatus = idb.fetchSingle(fragaAdmin);
+                    if (adminStatus.equals("J")) {
                         admin = true;
                     }
                     agent = true;
@@ -184,10 +184,10 @@ public class MittFönster extends javax.swing.JFrame {
                         //öppnar ett nytt fönster ifall lösenordet stämmer
                         if (admin) {
                             //öppnar admin fönster
-                            new AdminPage(idb, anvandareInput).setVisible(true);
+                            new AgentPage(idb, anvandareInput, admin).setVisible(true);
                         } else {
                             //öppnar "vanligt" agent fönster
-                            new AgentPage(idb, anvandareInput).setVisible(true);
+                            new AgentPage(idb, anvandareInput, admin).setVisible(true);
                         }
                     }
                 }
