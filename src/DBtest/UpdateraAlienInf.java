@@ -233,15 +233,7 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                 while (i <= varden.size()) {
                     if (i == 1) {
                         losenordField.setText(enData);
-                    }
-                    /*if (i == 2) {
-                        String ansAgentFraga = "SELECT agent.namn FROM agent\n"
-                                + "inner join alien a on agent.Agent_ID = a.Ansvarig_Agent\n"
-                                + "WHERE Ansvarig_Agent = '" + enData + "';";
-                        String ansAgent = idb.fetchSingle(ansAgentFraga);
-                        ansvarigField.setText(ansAgent);
-                        ansCmb.addItem(data);
-                    }*/
+                    }                    
                     if(i == 2){
                         ArrayList<String> agentNamn = new ArrayList<String>();
                         String ansAgentFraga = "SELECT namn FROM agent ORDER BY namn ASC";

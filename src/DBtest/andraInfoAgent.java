@@ -22,11 +22,11 @@ public class andraInfoAgent extends javax.swing.JFrame {
     public andraInfoAgent(InfDB iidb) {
         initComponents();
         idb = iidb;
-        fillAlienCmb();
+        fillAgentCmb();
         fillTextFields();
     }
 
-    private void fillAlienCmb() {
+    private void fillAgentCmb() {
         try {
             ArrayList<String> agenter = new ArrayList<String>();
             String alienFraga = "SELECT namn FROM agent";
@@ -90,6 +90,12 @@ public class andraInfoAgent extends javax.swing.JFrame {
 
         jLabel2.setText("Område");
 
+        agentCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agentCmbActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,12 +156,6 @@ public class andraInfoAgent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void alienCmbActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        valdAgent = agentCmb.getSelectedItem().toString();
-        System.out.println(valdAgent);
-        fillTextFields();
-    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         boolean rattInputLosenord = false;
@@ -187,7 +187,7 @@ public class andraInfoAgent extends javax.swing.JFrame {
             String omradeID = idb.fetchSingle(specifiktOmradeFraga);
 
             String tel = telField.getText();
-            String updateraAgentFraga = "UPDATE agent SET Losenord = '" + losenord + "', Namn = '" + namn + "', Telefon = '" + tel + "', Område = '" + omradeID + "' where namn = '" + namn + "'";
+            String updateraAgentFraga = "UPDATE agent SET Losenord = '" + losenord + "', Namn = '" + namn + "', Administrator = '"+adminStatus+"', Telefon = '" + tel + "', Omrade = '" + omradeID + "' where namn = '" + namn + "'";
             idb.update(updateraAgentFraga);
         } catch (Exception ex) {
             System.out.println(ex);
@@ -197,10 +197,16 @@ public class andraInfoAgent extends javax.swing.JFrame {
     private void adminCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminCmbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adminCmbActionPerformed
+
+    private void agentCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentCmbActionPerformed
+        // TODO add your handling code here:
+        valdAgent = agentCmb.getSelectedItem().toString();
+        fillTextFields();
+    }//GEN-LAST:event_agentCmbActionPerformed
     private void fillTextFields() {
         try {
 
-            String fraga = "SELECT * FROM agent WHERE namn = '" + valdAgent + "'";
+            String fraga = "SELECT losenord, telefon FROM agent WHERE namn = '" + valdAgent + "'";
             HashMap<String, String> varden = new HashMap<String, String>();
             varden = idb.fetchRow(fraga);
             int i = 0;
@@ -208,20 +214,12 @@ public class andraInfoAgent extends javax.swing.JFrame {
             for (String data : varden.values()) {
                 enData = data;
                 while (i <= varden.size()) {
-                    if (i == 1) {
-                        losenordField.setText(enData);
-                    }
-                    /*if (i == 2) {
-                        String ansAgentFraga = "SELECT agent.namn FROM agent\n"
-                                + "inner join alien a on agent.Agent_ID = a.Ansvarig_Agent\n"
-                                + "WHERE Ansvarig_Agent = '" + enData + "';";
-                        String ansAgent = idb.fetchSingle(ansAgentFraga);
-                        ansvarigField.setText(ansAgent);
-                        ansCmb.addItem(data);
-                    }*/
-                    if (i == 2) {
+                    if (i == 0) {
                         telField.setText(enData);
                     }
+                    if (i == 1) {
+                        losenordField.setText(enData);
+                    }                   
 
                     break;
                 }

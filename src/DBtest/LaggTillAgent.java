@@ -68,7 +68,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
 
         jLabel5.setText("Admin:");
 
-        adminCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ja", "Nej" }));
+        adminCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
 
         okButton.setText("Ok");
         okButton.addActionListener(new java.awt.event.ActionListener() {

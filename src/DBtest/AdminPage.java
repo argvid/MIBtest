@@ -90,6 +90,11 @@ public class AdminPage extends javax.swing.JFrame {
         jButton7.setText("Ge Agent admin status");
 
         jButton8.setText("Se information på Agent");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Ta bort Agent ur systemet");
 
@@ -169,6 +174,11 @@ public class AdminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         new andraInfoAgent(idb).setVisible(true);
     }//GEN-LAST:event_andraAgentButtonActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        new SeInformationAgent(idb).setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
