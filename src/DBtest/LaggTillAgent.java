@@ -163,11 +163,6 @@ public class LaggTillAgent extends javax.swing.JFrame {
                 corTel = true;
             }
             String namn = namnField.getText();
-            Validation val = new Validation();
-            /*boolean rattAgent = val.agentRegex(namn);
-            if (rattAgent == true) {
-                corAgent = true;
-            }*/
             //kolla ifall alla fält är ifyllda
             if (namn.length() > 0 && tel.length() > 0 && losenord.length() > 0) {
                 checkInteNull = true;
@@ -203,10 +198,10 @@ public class LaggTillAgent extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Du måste fylla i alla fält");
 
             }
-            if (corAgent == false) {
+            /*if (corAgent == false) {
                 JOptionPane.showMessageDialog(null, "Namnfältet måste börja med 'Agent'");
 
-            }
+            }*/
 
         } catch (HeadlessException | InfException ex) {
             System.out.println(ex);

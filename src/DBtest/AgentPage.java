@@ -379,12 +379,16 @@ public class AgentPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             String losenordInput = andraLosenordField.getText();
+            Validation validering = new Validation(losenordInput);
+            boolean test = validering.testaString(losenordInput);
+            if(test == true){
             if (losenordInput.length() < 7) {
 
                 String fraga = "UPDATE agent SET Losenord = '" + losenordInput + "' WHERE agent.Namn = '" + anvandare + "'";
                 idb.update(fraga);
             } else {
                 JOptionPane.showMessageDialog(null, "Ditt lösenord får inte överstiga 5 tecken!");
+            }
             }
 
         } catch (Exception ex) {

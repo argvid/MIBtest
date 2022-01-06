@@ -44,12 +44,13 @@ public class AdminPage extends javax.swing.JFrame {
         andraInfAlien = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         andraAgentButton = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        taBortAlien = new javax.swing.JButton();
+        taBortUtrustning = new javax.swing.JButton();
+        geAdmin = new javax.swing.JButton();
+        seInformation = new javax.swing.JButton();
+        taBortAgent = new javax.swing.JButton();
+        andraOmradesChef = new javax.swing.JButton();
+        andraKontorsChef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,22 +84,39 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Ta bort alien");
+        taBortAlien.setText("Ta bort alien");
 
-        jButton6.setText("Ta bort utrustning");
+        taBortUtrustning.setText("Ta bort utrustning");
 
-        jButton7.setText("Ge Agent admin status");
-
-        jButton8.setText("Se information på Agent");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        geAdmin.setText("Ge Agent admin status");
+        geAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                geAdminActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Ta bort Agent ur systemet");
+        seInformation.setText("Se information på Agent");
+        seInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seInformationActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("jButton10");
+        taBortAgent.setText("Ta bort Agent ur systemet");
+
+        andraOmradesChef.setText("Ändra områdeschef");
+        andraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                andraOmradesChefActionPerformed(evt);
+            }
+        });
+
+        andraKontorsChef.setText("Ändra kontorschef");
+        andraKontorsChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                andraKontorsChefActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,16 +130,17 @@ public class AdminPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(taBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(taBortUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraAgentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                             .addComponent(regAlienButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraInfAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(geAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(seInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(taBortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(andraOmradesChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(andraKontorsChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,18 +157,20 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(andraAgentButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8)
+                .addComponent(seInformation)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(taBortAlien)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7)
+                .addComponent(geAdmin)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(taBortUtrustning)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(taBortAgent)
                 .addGap(18, 18, 18)
-                .addComponent(jButton10)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addComponent(andraOmradesChef)
+                .addGap(18, 18, 18)
+                .addComponent(andraKontorsChef)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,10 +196,25 @@ public class AdminPage extends javax.swing.JFrame {
         new andraInfoAgent(idb).setVisible(true);
     }//GEN-LAST:event_andraAgentButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void seInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seInformationActionPerformed
         // TODO add your handling code here:
         new SeInformationAgent(idb).setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_seInformationActionPerformed
+
+    private void geAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geAdminActionPerformed
+        // TODO add your handling code here:
+        new GeAdminStatus(idb).setVisible(true);
+    }//GEN-LAST:event_geAdminActionPerformed
+
+    private void andraOmradesChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraOmradesChefActionPerformed
+        // TODO add your handling code here:
+        new AndraOmradesChef(idb).setVisible(true);
+    }//GEN-LAST:event_andraOmradesChefActionPerformed
+
+    private void andraKontorsChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKontorsChefActionPerformed
+        // TODO add your handling code here:
+        new AndraKontorsChef(idb).setVisible(true);
+    }//GEN-LAST:event_andraKontorsChefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,14 +254,15 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton andraAgentButton;
     private javax.swing.JButton andraInfAlien;
-    private javax.swing.JButton jButton10;
+    private javax.swing.JButton andraKontorsChef;
+    private javax.swing.JButton andraOmradesChef;
+    private javax.swing.JButton geAdmin;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel label;
     private javax.swing.JButton regAlienButton;
+    private javax.swing.JButton seInformation;
+    private javax.swing.JButton taBortAgent;
+    private javax.swing.JButton taBortAlien;
+    private javax.swing.JButton taBortUtrustning;
     // End of variables declaration//GEN-END:variables
 }

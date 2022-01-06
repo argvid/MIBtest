@@ -13,14 +13,23 @@ import javax.swing.JOptionPane;
  */
 public class Validation {
 
+    private String input;
 
+    public Validation(String input) {
 
-    public Validation() {
+        this.input = input;
 
     }
-    /*public boolean agentRegex(String input){
-        String regex = "Agent";
-        return input.matches(regex);
-    }*/
 
+    public boolean testaString(String input) {
+        boolean rattString = true;
+        if (input.equals("")) {
+            JOptionPane.showMessageDialog(null, "Du måste fylla i fönstret!");
+            rattString = false;
+
+        }
+        return rattString;
+
+    }
 }
+

@@ -164,15 +164,20 @@ public class MittFönster extends javax.swing.JFrame {
                     agent = true;
                 }
             }
+
             ArrayList<String> aliens = new ArrayList<String>();
             String alienFraga = "SELECT namn FROM alien";
             aliens = idb.fetchColumn(alienFraga);
             //kollar om aliens namn finns inlagt i databasen
             for (String alienSpecifik : aliens) {
                 if (alienSpecifik.contentEquals(anvandareInput)) {
+                    System.out.println("tja");
+
                     alien = true;
+
                 }
             }
+
             //om agentens boolean variabel = true, så kommer man logga in som agent
             if (agent) {
                 ArrayList<String> losenord = new ArrayList<String>();
@@ -192,7 +197,7 @@ public class MittFönster extends javax.swing.JFrame {
                     }
                 }
                 //ifall alien är true kommer man loggas in som alien istället
-            } else if (alien = true) {
+            } else if (alien == true) {
                 ArrayList<String> losenord = new ArrayList<String>();
                 String losenordFraga = "Select Losenord from alien where Namn = '" + anvandareInput + "'";
                 losenord = idb.fetchColumn(losenordFraga);
@@ -203,6 +208,11 @@ public class MittFönster extends javax.swing.JFrame {
                         new AlienPage(idb, anvandareInput).setVisible(true);
                     }
                 }
+            }
+
+            if (alien == false && agent == false && admin == false) {
+                JOptionPane.showMessageDialog(null, "Fel lösenord eller användarnamn!");
+
             }
         } catch (Exception ex) {
             System.out.println(ex);
