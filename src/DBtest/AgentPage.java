@@ -41,7 +41,7 @@ public class AgentPage extends javax.swing.JFrame {
         fillPlatsCmb();
         fillOmradeCmb();
         setAdminButtonVisibility();
-        
+
     }
 
     /**
@@ -381,14 +381,14 @@ public class AgentPage extends javax.swing.JFrame {
             String losenordInput = andraLosenordField.getText();
             Validation validering = new Validation(losenordInput);
             boolean test = validering.testaString(losenordInput);
-            if(test == true){
-            if (losenordInput.length() < 7) {
+            if (test == true) {
+                if (losenordInput.length() < 7) {
 
-                String fraga = "UPDATE agent SET Losenord = '" + losenordInput + "' WHERE agent.Namn = '" + anvandare + "'";
-                idb.update(fraga);
-            } else {
-                JOptionPane.showMessageDialog(null, "Ditt lösenord får inte överstiga 5 tecken!");
-            }
+                    String fraga = "UPDATE agent SET Losenord = '" + losenordInput + "' WHERE agent.Namn = '" + anvandare + "'";
+                    idb.update(fraga);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ditt lösenord får inte överstiga 5 tecken!");
+                }
             }
 
         } catch (Exception ex) {
@@ -403,20 +403,24 @@ public class AgentPage extends javax.swing.JFrame {
             System.out.println(tid);
 
             String utrustningInput = utrustningField.getText();
-            String nyttUtrustningID = "SELECT MAX(Utrustnings_ID) + 1 FROM Utrustning";
-            String utrustningId = idb.fetchSingle(nyttUtrustningID);
-            //-------------------------------------------------------
-            String utrustningFraga = "INSERT INTO utrustning (Utrustnings_ID, Benamning) VALUES ('" + utrustningId + "', '" + utrustningInput + "')";
-            idb.insert(utrustningFraga);
-            //-------------------------------------------------------
-            String agentID = "SELECT Agent_id FROM agent where Namn = '" + anvandare + "'";
-            String ettAgentID = idb.fetchSingle(agentID);
-            //-------------------------------------------------------
-            String utrustningID = "SELECT Utrustnings_id FROM utrustning where Benamning = '" + utrustningInput + "'";
-            String ettUtrustningID = idb.fetchSingle(utrustningID);
-            //-------------------------------------------------------
-            String sambandFraga = "INSERT INTO innehar_utrustning (Agent_ID, Utrustnings_ID, Utkvitteringsdatum) VALUES ('" + ettAgentID + "','" + ettUtrustningID + "', '" + tid + "')";
-            idb.insert(sambandFraga);
+            Validation validering = new Validation(utrustningInput);
+            boolean test = validering.testaString(utrustningInput);
+            if (test == true) {
+                String nyttUtrustningID = "SELECT MAX(Utrustnings_ID) + 1 FROM Utrustning";
+                String utrustningId = idb.fetchSingle(nyttUtrustningID);
+                //-------------------------------------------------------
+                String utrustningFraga = "INSERT INTO utrustning (Utrustnings_ID, Benamning) VALUES ('" + utrustningId + "', '" + utrustningInput + "')";
+                idb.insert(utrustningFraga);
+                //-------------------------------------------------------
+                String agentID = "SELECT Agent_id FROM agent where Namn = '" + anvandare + "'";
+                String ettAgentID = idb.fetchSingle(agentID);
+                //-------------------------------------------------------
+                String utrustningID = "SELECT Utrustnings_id FROM utrustning where Benamning = '" + utrustningInput + "'";
+                String ettUtrustningID = idb.fetchSingle(utrustningID);
+                //-------------------------------------------------------
+                String sambandFraga = "INSERT INTO innehar_utrustning (Agent_ID, Utrustnings_ID, Utkvitteringsdatum) VALUES ('" + ettAgentID + "','" + ettUtrustningID + "', '" + tid + "')";
+                idb.insert(sambandFraga);
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -508,7 +512,11 @@ public class AgentPage extends javax.swing.JFrame {
     private void specAlienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specAlienButtonActionPerformed
         // TODO add your handling code here:
         String alien = specAlienTextBox.getText();
-        new SpecAlien(idb, alien).setVisible(true);
+        Validation validering = new Validation(alien);
+        boolean test = validering.testaString(alien);
+        if (test == true) {
+            new SpecAlien(idb, alien).setVisible(true);
+        }
     }//GEN-LAST:event_specAlienButtonActionPerformed
 
     private void omradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeButtonActionPerformed
@@ -523,7 +531,7 @@ public class AgentPage extends javax.swing.JFrame {
     private void setAdminButtonVisibility() {
         if (admin) {
             adminButton.setVisible(true);
-        } else if(!admin) {
+        } else if (!admin) {
             adminButton.setVisible(false);
 
         }

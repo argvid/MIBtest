@@ -40,13 +40,11 @@
               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="agentCmb" pref="165" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="omradeCmb" max="32767" attributes="0"/>
-                      <Component id="losenordField" alignment="0" pref="165" max="32767" attributes="0"/>
-                      <Component id="telField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="namnField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="adminCmb" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="omradeCmb" max="32767" attributes="0"/>
+                  <Component id="losenordField" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="telField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="namnField" alignment="0" max="32767" attributes="0"/>
+                  <Component id="adminCmb" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="107" max="32767" attributes="0"/>
           </Group>

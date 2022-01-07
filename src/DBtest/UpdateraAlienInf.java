@@ -213,9 +213,28 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
 
             String id = idField.getText();
             String tel = telField.getText();
+            Validation validering = new Validation(losenord);
+            boolean test = validering.testaString(losenord);
+            Validation validering2 = new Validation(plats);
+            boolean test2 = validering2.testaString(plats);
+
+            Validation validering3 = new Validation(reg);
+            boolean test3 = validering3.testaString(reg);
+
+            Validation validering4 = new Validation(id);
+            boolean test4 = validering4.testaString(id);
+            
+            Validation validering5 = new Validation(tel);
+            boolean test5 = validering5.testaString(tel);
+            
+            Validation validering6 = new Validation(namn);
+            boolean test6 = validering6.testaString(namn);
+            
+            if(test == true && test2 == true && test3 == true && test4 == true && test5 == true && test6 == true){
             String updateraAlienFraga = "UPDATE alien SET Alien_ID = '" + id + "', Registreringsdatum = '" + reg + "', Losenord = '" + losenord + "',\n"
                     + "Namn = '" + namn + "', Telefon = '" + tel + "', Plats = '" + platsID + "', Ansvarig_Agent = '" + ansvarigAgentID + "' where namn = '" + namn + "'";
             idb.update(updateraAlienFraga);
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }

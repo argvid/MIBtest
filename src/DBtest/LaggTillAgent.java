@@ -137,10 +137,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
     private void losenFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_losenFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_losenFieldActionPerformed
-    private static boolean kollaString(String str) {
-        String regex = "[0-9]+";
-        return str.matches(regex);
-    }
+
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
 
         try {
@@ -158,16 +155,9 @@ public class LaggTillAgent extends javax.swing.JFrame {
             }
             String tel = telField.getText();
             //använder regex för att validera att nummersträngen endast innehåller siffror
-            boolean rattTel = kollaString(tel);
-            if (rattTel == true) {
-                corTel = true;
-            }
+
             String namn = namnField.getText();
             //kolla ifall alla fält är ifyllda
-            if (namn.length() > 0 && tel.length() > 0 && losenord.length() > 0) {
-                checkInteNull = true;
-
-            }
             //ta ut det som är valt i comboboxar
             String omradeNamn = omradeCmb.getSelectedItem().toString();
             String omradeFraga = "SELECT Omrades_ID from omrade where Benamning = '" + omradeNamn + "'";
@@ -179,25 +169,28 @@ public class LaggTillAgent extends javax.swing.JFrame {
             } else if (adminStatus.equals("Nej")) {
                 adminStatus = "N";
             }
+            Validation validering5 = new Validation(losenord);
+            boolean rattLosenord = validering5.kollaLosen(losenord);
+            
+            Validation validering = new Validation(tel);
+            boolean rattTel = validering.kollaInt(tel);
+
+            Validation validering2 = new Validation(namn);
+            boolean test2 = validering2.testaString(namn);
+
+            Validation validering3 = new Validation(tel);
+            boolean test3 = validering3.testaString(tel);
+
+            Validation validering4 = new Validation(losenord);
+            boolean test4 = validering4.testaString(losenord);
             //stämmer alla inputs kommer det läggas in i databasen
-            if (corLosen == true && corTel == true && checkInteNull == true/* && corAgent == true*/) {
+            if (rattLosenord == true && rattTel == true && test2 == true && test3 == true && test4 == true) {
                 String regAgentFraga = "INSERT INTO agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Losenord, Omrade)\n"
                         + "SELECT MAX(Agent_ID) + 1, '" + namn + "', '" + tel + "', '" + dagensDatum + "','" + adminStatus + "','" + losenord + "','" + omrade + "' FROM agent";
                 idb.insert(regAgentFraga);
                 setVisible(false);
             }
             //skriv ut felmeddelanden + hjälp att rätta till fel
-            if (corTel == false) {
-                JOptionPane.showMessageDialog(null, "Ditt telefonnummer kan endast innehålla siffror");
-
-            }
-            if (corLosen == false) {
-                JOptionPane.showMessageDialog(null, "Ditt lösenord får inte vara mer än 6 tecken");
-            }
-            if (checkInteNull == false) {
-                JOptionPane.showMessageDialog(null, "Du måste fylla i alla fält");
-
-            }
             /*if (corAgent == false) {
                 JOptionPane.showMessageDialog(null, "Namnfältet måste börja med 'Agent'");
 

@@ -207,26 +207,22 @@ public class RegistreraAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
+
             //skapar ett unikt ID för en alien
             String alienIDFraga = "SELECT MAX(Alien_ID) + 1 FROM Alien";
             String alienID_osynlig = idb.fetchSingle(alienIDFraga);
 
-            //T<r ut dagens datum
+            //Tar ut dagens datum
             LocalDate tid_osynlig = LocalDate.now();
-            System.out.println(tid_osynlig);
 
             String losenord_synlig = new String(losenField.getPassword());
-            System.out.println(losenord_synlig);
 
             //----------------------------------------
             String namn_synlig = namnField.getText();
-            //matches(namn_synlig);
-
             //---------------------------------------
             String ansAgent = ansvarigAgentField.getText();
             String agentIDfraga = "SELECT agent_ID FROM agent WHERE namn = '" + ansAgent + "'";
             String agentID_synlig = idb.fetchSingle(agentIDfraga);
-            System.out.println(agentID_synlig);
             //----------------------------------------
             String tel_synlig = telField.getText();
             //---------------------------------------------
@@ -234,10 +230,26 @@ public class RegistreraAlien extends javax.swing.JFrame {
             String platsensBenamning = comboBox.getSelectedItem().toString();
             String platsIDfraga = "SELECT plats_ID FROM plats WHERE Benamning = '" + platsensBenamning + "'";
             String platsen = idb.fetchSingle(platsIDfraga);
-            System.out.println(platsen);
             //String platsID = idb.fetchSingle(platsIDfraga);
-            String insertFraga = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('" + alienID_osynlig + "', '" + tid_osynlig + "', '" + losenord_synlig + "', '" + namn_synlig + "', '" + tel_synlig + "', '" + platsen + "', '" + agentID_synlig + "' )";
-            idb.insert(insertFraga);
+            Validation validering = new Validation(losenord_synlig);
+            boolean test = validering.testaString(losenord_synlig);
+            System.out.println(test);
+            Validation validering2 = new Validation(namn_synlig);
+            boolean test2 = validering2.testaString(namn_synlig);
+            System.out.println(test2);
+
+            Validation validering3 = new Validation(ansAgent);
+            boolean test3 = validering3.testaString(ansAgent);
+            System.out.println(test3);
+
+            Validation validering4 = new Validation(tel_synlig);
+            boolean test4 = validering4.testaString(tel_synlig);
+            System.out.println(test4);
+
+            if (test == true && test2 == true && test3 == true && test4 == true) {
+                String insertFraga = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('" + alienID_osynlig + "', '" + tid_osynlig + "', '" + losenord_synlig + "', '" + namn_synlig + "', '" + tel_synlig + "', '" + platsen + "', '" + agentID_synlig + "' )";
+                idb.insert(insertFraga);
+            }
         } catch (InfException ex) {
             System.out.println(ex);
         }
@@ -287,7 +299,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         /*RegistreraAlien words = new RegistreraAlien(idb);
         words.matches("[A-Za-zåäö]+", "test");*/
 
-        /* Create and display the form */
+ /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 

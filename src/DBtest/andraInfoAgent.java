@@ -164,17 +164,13 @@ public class andraInfoAgent extends javax.swing.JFrame {
 
         try {
             String namn = namnField.getText();
-            if (namn.length() != 0) {
-                rattInputNamn = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "Du måste fylla i ett nytt namn");
-            }
+            Validation validation = new Validation(namn);
+            boolean namnTest = validation.testaString(namn);
+
             String losenord = losenordField.getText();
-            if (losenord.length() < 7) {
-                rattInputLosenord = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "Ditt nya lösenord måste vara mindre än 7 tecken");
-            }
+            Validation validation2 = new Validation(losenord);
+            boolean losenTest = validation.kollaLosen(losenord);
+
             String adminStatus = adminCmb.getSelectedItem().toString();
             if (adminStatus.equals("Ja")) {
                 adminStatus = "J";
@@ -187,8 +183,13 @@ public class andraInfoAgent extends javax.swing.JFrame {
             String omradeID = idb.fetchSingle(specifiktOmradeFraga);
 
             String tel = telField.getText();
-            String updateraAgentFraga = "UPDATE agent SET Losenord = '" + losenord + "', Namn = '" + namn + "', Administrator = '"+adminStatus+"', Telefon = '" + tel + "', Omrade = '" + omradeID + "' where namn = '" + namn + "'";
-            idb.update(updateraAgentFraga);
+            Validation validation3 = new Validation(tel);
+            boolean telTest = validation3.kollaInt(tel);
+            if (namnTest == true && losenTest == true && telTest == true) {
+                String updateraAgentFraga = "UPDATE agent SET Losenord = '" + losenord + "', Namn = '" + namn + "', Administrator = '" + adminStatus + "', Telefon = '" + tel + "', Omrade = '" + omradeID + "' where namn = '" + namn + "'";
+                idb.update(updateraAgentFraga);
+                setVisible(false);
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -219,7 +220,7 @@ public class andraInfoAgent extends javax.swing.JFrame {
                     }
                     if (i == 1) {
                         losenordField.setText(enData);
-                    }                   
+                    }
 
                     break;
                 }

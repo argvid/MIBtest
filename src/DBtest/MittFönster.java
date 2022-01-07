@@ -148,71 +148,73 @@ public class MittFönster extends javax.swing.JFrame {
             boolean alien = false;
             boolean admin = false;
             anvandareInput = textPane.getText();
-            String inputLosenord = new String(passwordField.getPassword());
-            ArrayList<String> agenter = new ArrayList<String>();
-            String fragaNamn = "Select namn from agent";
-            agenter = idb.fetchColumn(fragaNamn);
-            for (String agentSpecifik : agenter) {
-                //kollar om agentens namn finns i databasen
-                if (agentSpecifik.contentEquals(anvandareInput)) {
-                    //kollar ifall agenten är en ADMIN
-                    String fragaAdmin = "Select administrator from agent where namn = '" + anvandareInput + "'";
-                    String adminStatus = idb.fetchSingle(fragaAdmin);
-                    if (adminStatus.equals("J")) {
-                        admin = true;
+            Validation validation = new Validation(anvandareInput);
+            boolean test = validation.testaString(anvandareInput);
+            if (test) {
+                String inputLosenord = new String(passwordField.getPassword());
+                ArrayList<String> agenter = new ArrayList<String>();
+                String fragaNamn = "Select namn from agent";
+                agenter = idb.fetchColumn(fragaNamn);
+                for (String agentSpecifik : agenter) {
+                    //kollar om agentens namn finns i databasen
+                    if (agentSpecifik.contentEquals(anvandareInput)) {
+                        //kollar ifall agenten är en ADMIN
+                        String fragaAdmin = "Select administrator from agent where namn = '" + anvandareInput + "'";
+                        String adminStatus = idb.fetchSingle(fragaAdmin);
+                        if (adminStatus.equals("J")) {
+                            admin = true;
+                        }
+                        agent = true;
                     }
-                    agent = true;
                 }
-            }
 
-            ArrayList<String> aliens = new ArrayList<String>();
-            String alienFraga = "SELECT namn FROM alien";
-            aliens = idb.fetchColumn(alienFraga);
-            //kollar om aliens namn finns inlagt i databasen
-            for (String alienSpecifik : aliens) {
-                if (alienSpecifik.contentEquals(anvandareInput)) {
-                    System.out.println("tja");
-
-                    alien = true;
-
+                ArrayList<String> aliens = new ArrayList<String>();
+                String alienFraga = "SELECT namn FROM alien";
+                aliens = idb.fetchColumn(alienFraga);
+                //kollar om aliens namn finns inlagt i databasen
+                for (String alienSpecifik : aliens) {
+                    if (alienSpecifik.contentEquals(anvandareInput)) {
+                        System.out.println("tja");
+                        alien = true;
+                    }
                 }
-            }
 
-            //om agentens boolean variabel = true, så kommer man logga in som agent
-            if (agent) {
-                ArrayList<String> losenord = new ArrayList<String>();
-                String losenordFraga = "Select Losenord from Agent where Namn = '" + anvandareInput + "'";
-                losenord = idb.fetchColumn(losenordFraga);
-                //kolla ifall lösenordet stämmer
-                for (String losenordet : losenord) {
-                    if (losenordet.contentEquals(inputLosenord)) {
-                        //öppnar ett nytt fönster ifall lösenordet stämmer
-                        if (admin) {
-                            //öppnar admin fönster
-                            new AgentPage(idb, anvandareInput, admin).setVisible(true);
-                        } else {
-                            //öppnar "vanligt" agent fönster
-                            new AgentPage(idb, anvandareInput, admin).setVisible(true);
+                //om agentens boolean variabel = true, så kommer man logga in som agent
+                if (agent) {
+                    ArrayList<String> losenord = new ArrayList<String>();
+                    String losenordFraga = "Select Losenord from Agent where Namn = '" + anvandareInput + "'";
+                    losenord = idb.fetchColumn(losenordFraga);
+                    //kolla ifall lösenordet stämmer
+                    for (String losenordet : losenord) {
+                        if (losenordet.contentEquals(inputLosenord)) {
+                            //öppnar ett nytt fönster ifall lösenordet stämmer
+                            if (admin) {
+                                //öppnar admin fönster
+                                new AgentPage(idb, anvandareInput, admin).setVisible(true);
+                            } else {
+                                //öppnar "vanligt" agent fönster
+                                new AgentPage(idb, anvandareInput, admin).setVisible(true);
+                            }
+                        }
+                    }
+                    //ifall alien är true kommer man loggas in som alien istället
+                } else if (alien == true) {
+                    ArrayList<String> losenord = new ArrayList<String>();
+                    String losenordFraga = "Select Losenord from alien where Namn = '" + anvandareInput + "'";
+                    losenord = idb.fetchColumn(losenordFraga);
+                    //kollar ifall det är rätt lösenord
+                    for (String losenordet : losenord) {
+                        if (losenordet.contentEquals(inputLosenord)) {
+                            //öppnar ett nytt fönster ifall lösenordet stämmer
+                            new AlienPage(idb, anvandareInput).setVisible(true);
                         }
                     }
                 }
-                //ifall alien är true kommer man loggas in som alien istället
-            } else if (alien == true) {
-                ArrayList<String> losenord = new ArrayList<String>();
-                String losenordFraga = "Select Losenord from alien where Namn = '" + anvandareInput + "'";
-                losenord = idb.fetchColumn(losenordFraga);
-                //kollar ifall det är rätt lösenord
-                for (String losenordet : losenord) {
-                    if (losenordet.contentEquals(inputLosenord)) {
-                        //öppnar ett nytt fönster ifall lösenordet stämmer
-                        new AlienPage(idb, anvandareInput).setVisible(true);
-                    }
+
+                if (alien == false && agent == false && admin == false) {
+                    JOptionPane.showMessageDialog(null, "Fel lösenord eller användarnamn!");
+
                 }
-            }
-
-            if (alien == false && agent == false && admin == false) {
-                JOptionPane.showMessageDialog(null, "Fel lösenord eller användarnamn!");
-
             }
         } catch (Exception ex) {
             System.out.println(ex);

@@ -22,14 +22,36 @@ public class Validation {
     }
 
     public boolean testaString(String input) {
-        boolean rattString = true;
+
         if (input.equals("")) {
             JOptionPane.showMessageDialog(null, "Du måste fylla i fönstret!");
-            rattString = false;
+            return false;
 
         }
-        return rattString;
+        return true;
+    }
+
+    public boolean kollaInt(String str) {
+        String regex = "[0-9]+";
+
+        if (str.matches(regex) == false) {
+            JOptionPane.showMessageDialog(null, "Telefonnummer kan endast innehålla siffror");
+
+        }
+        return str.matches(regex);
+    }
+
+    public boolean kollaLosen(String losenord) {
+        if (losenord.length() > 6) {
+            JOptionPane.showMessageDialog(null, "Ditt lösenord kan inte vara mer än 6 tecken");
+        }
+        
+        else if(losenord.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Ditt lösenord får inte vara tomt");
+
+        }
+        return losenord.length() < 7;
 
     }
 }
-
