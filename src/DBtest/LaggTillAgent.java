@@ -141,18 +141,11 @@ public class LaggTillAgent extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
 
         try {
-            boolean corLosen = false;
-            boolean corTel = false;
-            boolean corAgent = false;
-            boolean checkInteNull = false;
+
             //ta ut dagens datum i rätt form
             LocalDate dagensDatum = LocalDate.now();
             String losenord = losenField.getText();
-            //kolla så lösenordet inte är över 6 för att inte skapa ett truncation exception
-            if (losenord.length() < 7) {
-                corLosen = true;
 
-            }
             String tel = telField.getText();
             //använder regex för att validera att nummersträngen endast innehåller siffror
 
@@ -214,6 +207,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
         }
 
     }
+    
 
     /**
      * @param args the command line arguments

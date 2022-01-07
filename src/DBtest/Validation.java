@@ -22,21 +22,17 @@ public class Validation {
     }
 
     public boolean testaString(String input) {
-
         if (input.equals("")) {
             JOptionPane.showMessageDialog(null, "Du måste fylla i fönstret!");
             return false;
-
         }
         return true;
     }
 
     public boolean kollaInt(String str) {
         String regex = "[0-9]+";
-
         if (str.matches(regex) == false) {
             JOptionPane.showMessageDialog(null, "Telefonnummer kan endast innehålla siffror");
-
         }
         return str.matches(regex);
     }
@@ -49,7 +45,6 @@ public class Validation {
         else if(losenord.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Ditt lösenord får inte vara tomt");
-
         }
         return losenord.length() < 7;
 

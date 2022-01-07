@@ -87,6 +87,11 @@ public class AdminPage extends javax.swing.JFrame {
         taBortAlien.setText("Ta bort alien");
 
         taBortUtrustning.setText("Ta bort utrustning");
+        taBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortUtrustningActionPerformed(evt);
+            }
+        });
 
         geAdmin.setText("Ge Agent admin status");
         geAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -215,6 +220,11 @@ public class AdminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AndraKontorsChef(idb).setVisible(true);
     }//GEN-LAST:event_andraKontorsChefActionPerformed
+
+    private void taBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortUtrustningActionPerformed
+        // TODO add your handling code here:
+        new TaBortUtrustning(idb).setVisible(true);
+    }//GEN-LAST:event_taBortUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
