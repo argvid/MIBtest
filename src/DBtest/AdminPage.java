@@ -48,7 +48,6 @@ public class AdminPage extends javax.swing.JFrame {
         taBortUtrustning = new javax.swing.JButton();
         geAdmin = new javax.swing.JButton();
         seInformation = new javax.swing.JButton();
-        taBortAgent = new javax.swing.JButton();
         andraOmradesChef = new javax.swing.JButton();
         andraKontorsChef = new javax.swing.JButton();
 
@@ -85,6 +84,11 @@ public class AdminPage extends javax.swing.JFrame {
         });
 
         taBortAlien.setText("Ta bort alien");
+        taBortAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortAlienActionPerformed(evt);
+            }
+        });
 
         taBortUtrustning.setText("Ta bort utrustning");
         taBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -106,8 +110,6 @@ public class AdminPage extends javax.swing.JFrame {
                 seInformationActionPerformed(evt);
             }
         });
-
-        taBortAgent.setText("Ta bort Agent ur systemet");
 
         andraOmradesChef.setText("Ändra områdeschef");
         andraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +145,6 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(geAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(seInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(taBortAgent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraOmradesChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraKontorsChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -170,12 +171,10 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(taBortUtrustning)
                 .addGap(18, 18, 18)
-                .addComponent(taBortAgent)
-                .addGap(18, 18, 18)
                 .addComponent(andraOmradesChef)
                 .addGap(18, 18, 18)
                 .addComponent(andraKontorsChef)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,6 +225,11 @@ public class AdminPage extends javax.swing.JFrame {
         new TaBortUtrustning(idb).setVisible(true);
     }//GEN-LAST:event_taBortUtrustningActionPerformed
 
+    private void taBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAlienActionPerformed
+        // TODO add your handling code here:
+        new TaBortAlien(idb).setVisible(true);
+    }//GEN-LAST:event_taBortAlienActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,7 +275,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel label;
     private javax.swing.JButton regAlienButton;
     private javax.swing.JButton seInformation;
-    private javax.swing.JButton taBortAgent;
     private javax.swing.JButton taBortAlien;
     private javax.swing.JButton taBortUtrustning;
     // End of variables declaration//GEN-END:variables

@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import DBtest.MittFönster;
+import DBtest.LogIn;
 import DBtest.RegistreraAlien;
 import DBtest.Validation;
 import java.awt.event.ActionListener;
@@ -33,7 +33,7 @@ public class Start {
     try {
         idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         
-        new MittFönster(idb).setVisible(true);
+        new LogIn(idb).setVisible(true);
     } catch (InfException ex) {
         Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
     }

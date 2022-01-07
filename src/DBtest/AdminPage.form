@@ -40,7 +40,6 @@
                           <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                           <Component id="geAdmin" max="32767" attributes="0"/>
                           <Component id="seInformation" max="32767" attributes="0"/>
-                          <Component id="taBortAgent" alignment="0" max="32767" attributes="0"/>
                           <Component id="andraOmradesChef" alignment="0" max="32767" attributes="0"/>
                           <Component id="andraKontorsChef" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -72,12 +71,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="taBortUtrustning" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="taBortAgent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="andraOmradesChef" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="andraKontorsChef" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -126,6 +123,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortAlienActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="taBortUtrustning">
       <Properties>
@@ -150,11 +150,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seInformationActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="taBortAgent">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ta bort Agent ur systemet"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="andraOmradesChef">
       <Properties>

@@ -78,6 +78,12 @@ public class infoOmradesChef extends javax.swing.JFrame {
                 "Namn", "Telefonnummer", "Anställningsdatum"
             }
         ));
+        table.setEnabled(false);
+        table.setFocusCycleRoot(true);
+        table.setGridColor(java.awt.Color.white);
+        table.setInheritsPopupMenu(true);
+        table.setSelectionBackground(java.awt.Color.white);
+        table.setShowHorizontalLines(false);
         jScrollPane1.setViewportView(table);
 
         jButton1.setText("Tillbaka");
