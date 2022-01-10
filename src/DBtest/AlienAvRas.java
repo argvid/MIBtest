@@ -25,6 +25,7 @@ public class AlienAvRas extends javax.swing.JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
      private void fillTable() {
+         //fyll tabellen med informationen
         try {
             ArrayList<String> aliens = new ArrayList<String>();
             String fraga = "select alien.namn from "+enRas+" inner join alien on "+enRas+".Alien_ID = alien.Alien_ID;";

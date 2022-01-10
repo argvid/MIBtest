@@ -24,7 +24,7 @@ public class AdminPage extends javax.swing.JFrame {
         this.anvandare = anvandare;
         idb = iidb;
     }
-
+    // Uppdaterar titeln med namn
     private void updateLabel(String anvandare) {
         label.setText("Adminfunktioner för " + anvandare);
         System.out.print(anvandare);
@@ -42,7 +42,7 @@ public class AdminPage extends javax.swing.JFrame {
         label = new javax.swing.JLabel();
         regAlienButton = new javax.swing.JButton();
         andraInfAlien = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        laggTillAgentButton = new javax.swing.JButton();
         andraAgentButton = new javax.swing.JButton();
         taBortAlien = new javax.swing.JButton();
         taBortUtrustning = new javax.swing.JButton();
@@ -69,10 +69,10 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Registrera Agent");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        laggTillAgentButton.setText("Registrera Agent");
+        laggTillAgentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                laggTillAgentButtonActionPerformed(evt);
             }
         });
 
@@ -142,7 +142,7 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(andraAgentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                             .addComponent(regAlienButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraInfAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(laggTillAgentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(geAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(seInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraOmradesChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -159,7 +159,7 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(andraInfAlien)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(laggTillAgentButton)
                 .addGap(18, 18, 18)
                 .addComponent(andraAgentButton)
                 .addGap(18, 18, 18)
@@ -180,6 +180,7 @@ public class AdminPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Väljer vad man vill göra på admin sidan
     private void regAlienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAlienButtonActionPerformed
         // TODO add your handling code here:
         new RegistreraAlien(idb).setVisible(true);
@@ -190,10 +191,10 @@ public class AdminPage extends javax.swing.JFrame {
         new UpdateraAlienInf(idb).setVisible(true);
     }//GEN-LAST:event_andraInfAlienActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void laggTillAgentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laggTillAgentButtonActionPerformed
         // TODO add your handling code here:
         new LaggTillAgent(idb).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_laggTillAgentButtonActionPerformed
 
     private void andraAgentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraAgentButtonActionPerformed
         // TODO add your handling code here:
@@ -271,8 +272,8 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton andraKontorsChef;
     private javax.swing.JButton andraOmradesChef;
     private javax.swing.JButton geAdmin;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel label;
+    private javax.swing.JButton laggTillAgentButton;
     private javax.swing.JButton regAlienButton;
     private javax.swing.JButton seInformation;
     private javax.swing.JButton taBortAlien;

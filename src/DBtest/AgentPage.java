@@ -376,7 +376,8 @@ public class AgentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_andraLosenordFieldActionPerformed
 
     private void andraLosenordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLosenordButtonActionPerformed
-        // TODO add your handling code here:
+
+        // Denna metod ändrar lösenord på agenten som är inloggad
         try {
             String losenordInput = andraLosenordField.getText();
             Validation validering = new Validation(losenordInput);
@@ -397,7 +398,7 @@ public class AgentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_andraLosenordButtonActionPerformed
 
     private void utrustningButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utrustningButtonActionPerformed
-        // TODO add your handling code here:
+// Lägg till utrustning på en agent
         try {
             LocalDate tid = LocalDate.now();
             System.out.println(tid);
@@ -426,6 +427,7 @@ public class AgentPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_utrustningButtonActionPerformed
     private void fillPlatsCmb() {
+        //Fyller comboboxen som har de olika platserna
         try {
             ArrayList<String> platsLista = new ArrayList<String>();
             String platserFraga = "SELECT Benamning FROM plats";
@@ -440,6 +442,8 @@ public class AgentPage extends javax.swing.JFrame {
     }
 
     private void fillOmradeCmb() {
+        //Fyller comboboxen som har de olika områdena
+
         try {
             ArrayList<String> omradeLista = new ArrayList<String>();
             String omradeFraga = "SELECT Benamning FROM omrade";
@@ -453,16 +457,16 @@ public class AgentPage extends javax.swing.JFrame {
         }
     }
     private void alienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienButtonActionPerformed
-        // TODO add your handling code here:
+        //Registrera en alien knappen
         new RegistreraAlien(idb).setVisible(true);
     }//GEN-LAST:event_alienButtonActionPerformed
 
     private void platsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platsButtonActionPerformed
-        // TODO add your handling code here:
+        //Se aliens som är på en plats
         String enPlats = platsCmb.getSelectedItem().toString();
         new aliensPaPlats(idb, enPlats).setVisible(true);
     }//GEN-LAST:event_platsButtonActionPerformed
-
+    
     private void platsCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platsCmbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_platsCmbActionPerformed
@@ -472,19 +476,19 @@ public class AgentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_platsCmbComponentAdded
 
     private void rasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasButtonActionPerformed
-        // TODO add your handling code here:
+        //Se aliens av en ras
         String enRas = rasCmb.getSelectedItem().toString();
         new AlienAvRas(idb, enRas).setVisible(true);
     }//GEN-LAST:event_rasButtonActionPerformed
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
-        // TODO add your handling code here:
+        //Logga ut
         setVisible(false);
         anvandare = "";
     }//GEN-LAST:event_logOutActionPerformed
 
     private void registreradButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreradButtonActionPerformed
-        // TODO add your handling code here:
+        //Se aliens som registrerats mellan vissa datum
         boolean rattFormatForstaDatum = false;
         boolean rattFormatAndraDatum = false;
 
@@ -510,7 +514,7 @@ public class AgentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_registreradButtonActionPerformed
 
     private void specAlienButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specAlienButtonActionPerformed
-        // TODO add your handling code here:
+        //Se info om en specifik alien
         String alien = specAlienTextBox.getText();
         Validation validering = new Validation(alien);
         boolean test = validering.testaString(alien);
@@ -520,15 +524,17 @@ public class AgentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_specAlienButtonActionPerformed
 
     private void omradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_omradeButtonActionPerformed
-        // TODO add your handling code here:
+        //Se Aliens i ett specifikt område
         String ettOmrade = omradeCmb.getSelectedItem().toString();
         new OmradesChef(idb, ettOmrade).setVisible(true);
     }//GEN-LAST:event_omradeButtonActionPerformed
-
+    
     private void forstaDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forstaDatumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_forstaDatumActionPerformed
+   
     private void setAdminButtonVisibility() {
+        //ifall en agent är admin kommer en knapp visas på den agentens homepage
         if (admin) {
             adminButton.setVisible(true);
         } else if (!admin) {
@@ -537,10 +543,11 @@ public class AgentPage extends javax.swing.JFrame {
         }
     }
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
-        // TODO add your handling code here:
+        //Gå till admin sidan
         new AdminPage(idb, anvandare).setVisible(true);
     }//GEN-LAST:event_adminButtonActionPerformed
     private void updateLabel(String anvandare) {
+        //Uppdatera 
         label.setText("Välkommen " + anvandare);
     }
 
