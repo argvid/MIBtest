@@ -112,7 +112,7 @@ public class AgentPage extends javax.swing.JFrame {
 
         jLabel1.setText("Ändra lösenord:");
 
-        andraLosenordButton.setText("OK");
+        andraLosenordButton.setText("Ändra");
         andraLosenordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 andraLosenordButtonActionPerformed(evt);
@@ -121,14 +121,14 @@ public class AgentPage extends javax.swing.JFrame {
 
         jLabel3.setText("Lägg till ny utrustning:");
 
-        utrustningButton.setText("OK");
+        utrustningButton.setText("Lägg till");
         utrustningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 utrustningButtonActionPerformed(evt);
             }
         });
 
-        alienButton.setText(">");
+        alienButton.setText("Lägg till");
         alienButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alienButtonActionPerformed(evt);
@@ -248,13 +248,14 @@ public class AgentPage extends javax.swing.JFrame {
                                     .addComponent(andraLosenordField))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(utrustningButton, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                    .addComponent(andraLosenordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(utrustningButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(andraLosenordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(alienButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(alienButton)
+                                .addGap(75, 75, 75)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -539,7 +540,6 @@ public class AgentPage extends javax.swing.JFrame {
             adminButton.setVisible(true);
         } else if (!admin) {
             adminButton.setVisible(false);
-
         }
     }
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
