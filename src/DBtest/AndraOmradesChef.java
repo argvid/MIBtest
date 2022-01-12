@@ -22,7 +22,6 @@ public class AndraOmradesChef extends javax.swing.JFrame {
     }
 
     private void fillCmb() {
-        //fyll comboboxen med agenter
         try {
             String agentFraga = "SELECT namn FROM agent";
             ArrayList<String> agentLista = new ArrayList<String>();
@@ -30,7 +29,6 @@ public class AndraOmradesChef extends javax.swing.JFrame {
             for (String status : agentLista) {
                 agentCmb.addItem(status);
             }
-            //fyll den andra comboboxen med områden
             String omradesFraga = "SELECT Benamning FROM omrade";
             ArrayList<String> omradesLista = new ArrayList<String>();
             omradesLista = idb.fetchColumn(omradesFraga);
@@ -88,21 +86,22 @@ public class AndraOmradesChef extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-//knapp för att uppdatera områdeschefen
-        try {
-            String agent = agentCmb.getSelectedItem().toString();
-            String omrade = omradeCmb.getSelectedItem().toString();
-            String agentFraga = "SELECT Agent_ID FROM agent WHERE namn = '" + agent + "'";
-            String agentID = idb.fetchSingle(agentFraga);
-            String omradeFraga = "SELECT omrades_ID WHERE benamning = '" + omrade + "'";
-            String omradesID = idb.fetchSingle(omradeFraga);
-            //
-            String setOmradesChef = "UPDATE omradeschef set Agent_ID = '" + agentID + "' where Omrade = '" + omradesID + "'";
-            idb.update(setOmradesChef);
-        } catch (Exception ex) {
+        // TODO add your handling code here:
+        try{
+        String agent = agentCmb.getSelectedItem().toString();
+        String omrade = omradeCmb.getSelectedItem().toString();
+        String agentFraga = "SELECT Agent_ID FROM agent WHERE namn = '"+agent+"'";
+        String agentID = idb.fetchSingle(agentFraga);
+        String omradeFraga = "SELECT omrades_ID WHERE benamning = '"+omrade+"'";
+        String omradesID = idb.fetchSingle(omradeFraga);
+        //
+        String setOmradesChef = "UPDATE omradeschef set Agent_ID = '"+agentID+"' where Omrade = '"+omradesID+"'";
+        idb.update(setOmradesChef);
+        }
+        catch(Exception  ex){
             System.out.println(ex);
         }
-
+        
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**

@@ -23,14 +23,12 @@ public class RegistreraAlien extends javax.swing.JFrame {
      */
     private static InfDB idb;
     private String platsensBenamning;
-    private String ras;
     //private String regex;
 
     public RegistreraAlien(InfDB iidb) {
         initComponents();
         idb = iidb;
         fillComboBox();
-        firstCmb();
 
     }
 
@@ -50,15 +48,12 @@ public class RegistreraAlien extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         namnField = new javax.swing.JTextField();
         telField = new javax.swing.JTextField();
+        ansvarigAgentField = new javax.swing.JTextField();
         skickaButton = new javax.swing.JButton();
         comboBox = new javax.swing.JComboBox<>();
         losenField = new javax.swing.JPasswordField();
         checkBox = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        rasCmb = new javax.swing.JComboBox<>();
-        extraRasField = new javax.swing.JTextField();
-        extraRasLabel = new javax.swing.JLabel();
-        agentCmb = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,23 +61,23 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
         jLabel1.setText("Lösenord:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(39, 39, 52, 16);
+        jLabel1.setBounds(120, 90, 62, 16);
 
         jLabel2.setText("Telefon:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(39, 121, 41, 16);
+        jLabel2.setBounds(130, 170, 51, 16);
 
         jLabel3.setText("Namn:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(39, 81, 35, 16);
+        jLabel3.setBounds(140, 130, 41, 16);
 
         jLabel4.setText("Plats:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(39, 249, 27, 16);
+        jLabel4.setBounds(163, 267, 34, 16);
 
         jLabel5.setText("Ansvarig Agent:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(39, 162, 84, 16);
+        jLabel5.setBounds(90, 210, 100, 20);
 
         namnField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +85,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
         getContentPane().add(namnField);
-        namnField.setBounds(135, 78, 206, 22);
+        namnField.setBounds(270, 120, 206, 26);
 
         telField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +93,15 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
         getContentPane().add(telField);
-        telField.setBounds(135, 118, 206, 22);
+        telField.setBounds(270, 170, 206, 26);
+
+        ansvarigAgentField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ansvarigAgentFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ansvarigAgentField);
+        ansvarigAgentField.setBounds(270, 210, 206, 26);
 
         skickaButton.setText("OK");
         skickaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +110,10 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
         getContentPane().add(skickaButton);
-        skickaButton.setBounds(209, 282, 49, 25);
+        skickaButton.setBounds(239, 317, 75, 29);
 
         getContentPane().add(comboBox);
-        comboBox.setBounds(135, 245, 206, 24);
+        comboBox.setBounds(267, 263, 130, 27);
 
         losenField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +121,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
         getContentPane().add(losenField);
-        losenField.setBounds(135, 36, 206, 22);
+        losenField.setBounds(270, 80, 206, 26);
 
         checkBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         checkBox.setText("Visa Lösenord");
@@ -128,32 +131,17 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
         getContentPane().add(checkBox);
-        checkBox.setBounds(359, 35, 107, 25);
+        checkBox.setBounds(480, 80, 140, 23);
 
-        jLabel6.setText("Ras:");
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel6.setText("Registrera ny Alien");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(39, 203, 21, 16);
+        jLabel6.setBounds(210, 20, 270, 40);
 
-        rasCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boglodite", "Worm", "Squid" }));
-        rasCmb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rasCmbActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rasCmb);
-        rasCmb.setBounds(135, 200, 206, 22);
-        getContentPane().add(extraRasField);
-        extraRasField.setBounds(453, 200, 51, 22);
-        getContentPane().add(extraRasLabel);
-        extraRasLabel.setBounds(353, 200, 95, 22);
-
-        getContentPane().add(agentCmb);
-        agentCmb.setBounds(135, 158, 206, 24);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\arvid\\OneDrive\\Skrivbord\\baby-blue-color-solid-background-1920x1080.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/Red_Color.jpeg")); // NOI18N
         jLabel7.setText("jLabel7");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 570, 350);
+        jLabel7.setBounds(0, 0, 690, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,8 +153,11 @@ public class RegistreraAlien extends javax.swing.JFrame {
     private void telFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telFieldActionPerformed
+
+    private void ansvarigAgentFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ansvarigAgentFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ansvarigAgentFieldActionPerformed
     private void fillComboBox() {
-        //fyll comboboxen med platser
         try {
             ArrayList<String> platsLista = new ArrayList<String>();
             String platserFraga = "SELECT Benamning FROM plats";
@@ -175,14 +166,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
                 comboBox.addItem(platsen);
 
             }
-            //fyll agent cmb
-            ArrayList<String> agenter = new ArrayList<String>();
-            String alienFraga = "SELECT namn FROM agent";
-            agenter = idb.fetchColumn(alienFraga);
-            for (String agent : agenter) {
-                agentCmb.addItem(agent);
-            }
-
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -194,7 +177,8 @@ public class RegistreraAlien extends javax.swing.JFrame {
         return Pattern.matches(regex, input);
     }*/
     private void skickaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skickaButtonActionPerformed
-        //knapp för att registrera en alien
+        // TODO add your handling code here:
+
         try {
 
             //skapar ett unikt ID för en alien
@@ -209,8 +193,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
             //----------------------------------------
             String namn_synlig = namnField.getText();
             //---------------------------------------
-
-            String ansAgent = agentCmb.getSelectedItem().toString();
+            String ansAgent = ansvarigAgentField.getText();
             String agentIDfraga = "SELECT agent_ID FROM agent WHERE namn = '" + ansAgent + "'";
             String agentID_synlig = idb.fetchSingle(agentIDfraga);
             //----------------------------------------
@@ -220,54 +203,25 @@ public class RegistreraAlien extends javax.swing.JFrame {
             String platsensBenamning = comboBox.getSelectedItem().toString();
             String platsIDfraga = "SELECT plats_ID FROM plats WHERE Benamning = '" + platsensBenamning + "'";
             String platsen = idb.fetchSingle(platsIDfraga);
-            //Validerar inputs från valideringsklassen
+            //String platsID = idb.fetchSingle(platsIDfraga);
             Validation validering = new Validation(losenord_synlig);
             boolean test = validering.testaString(losenord_synlig);
-
+            System.out.println(test);
             Validation validering2 = new Validation(namn_synlig);
             boolean test2 = validering2.testaString(namn_synlig);
+            System.out.println(test2);
 
             Validation validering3 = new Validation(ansAgent);
             boolean test3 = validering3.testaString(ansAgent);
+            System.out.println(test3);
 
             Validation validering4 = new Validation(tel_synlig);
             boolean test4 = validering4.testaString(tel_synlig);
+            System.out.println(test4);
 
             if (test == true && test2 == true && test3 == true && test4 == true) {
                 String insertFraga = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('" + alienID_osynlig + "', '" + tid_osynlig + "', '" + losenord_synlig + "', '" + namn_synlig + "', '" + tel_synlig + "', '" + platsen + "', '" + agentID_synlig + "' )";
                 idb.insert(insertFraga);
-            }
-
-            ras = rasCmb.getSelectedItem().toString();
-            switch (ras) {
-                case "Squid":
-
-                    String antal_armar = extraRasField.getText();
-
-                    Validation validering5 = new Validation(antal_armar);
-                    boolean test5 = validering5.kollaInt(antal_armar);
-                    if (test5 == true) {
-                        String rasFraga = "INSERT INTO Squid (Alien_ID,Antal_Armar) VALUES ('" + alienID_osynlig + "','" + antal_armar + "')";
-                        idb.insert(rasFraga);
-                    }
-                    break;
-                case "Boglodite":
-                    
-                    String antal_boogies = extraRasField.getText();
-                    
-                    Validation validering6 = new Validation(antal_boogies);
-                    boolean test6 = validering6.kollaInt(antal_boogies);
-                    if(test6 == true){
-                    String rasFraga = "INSERT INTO boglodite(Alien_ID,Antal_Boogies) VALUES ('" + alienID_osynlig + "', '" + antal_boogies + "')";
-                    idb.insert(rasFraga);
-                    }
-                    break;
-                case "Worm":
-                    String rasFraga = "INSERT INTO worm (Alien_ID) VALUES ('" + alienID_osynlig + "')";
-                    idb.insert(rasFraga);
-                    break;
-                default:
-                    break;
             }
         } catch (InfException ex) {
             System.out.println(ex);
@@ -280,43 +234,13 @@ public class RegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_losenFieldActionPerformed
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-//Visar lösenordet om det önskas
+        // TODO add your handling code here:
         if (checkBox.isSelected()) {
             losenField.setEchoChar((char) 0);
         } else {
             losenField.setEchoChar('*');
         }
     }//GEN-LAST:event_checkBoxActionPerformed
-    private void firstCmb() {
-        extraRasLabel.setText("Antal Boogies");
-        extraRasLabel.setVisible(true);
-        extraRasField.setVisible(true);
-    }
-    private void rasCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasCmbActionPerformed
-        // TODO add your handling code here:
-        ras = rasCmb.getSelectedItem().toString();
-
-        switch (ras) {
-            case "Squid":
-                extraRasLabel.setText("Antal Armar");
-                extraRasLabel.setVisible(true);
-                extraRasField.setVisible(true);
-                break;
-            case "Boglodite":
-                extraRasLabel.setText("Antal Boogies");
-                extraRasLabel.setVisible(true);
-                extraRasField.setVisible(true);
-                break;
-            case "Worm":
-                extraRasLabel.setVisible(false);
-                extraRasField.setVisible(false);
-                break;
-            default:
-                break;
-        }
-
-
-    }//GEN-LAST:event_rasCmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,11 +282,9 @@ public class RegistreraAlien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> agentCmb;
+    private javax.swing.JTextField ansvarigAgentField;
     private javax.swing.JCheckBox checkBox;
     private javax.swing.JComboBox<String> comboBox;
-    private javax.swing.JTextField extraRasField;
-    private javax.swing.JLabel extraRasLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -372,7 +294,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField losenField;
     private javax.swing.JTextField namnField;
-    private javax.swing.JComboBox<String> rasCmb;
     private javax.swing.JButton skickaButton;
     private javax.swing.JTextField telField;
     // End of variables declaration//GEN-END:variables

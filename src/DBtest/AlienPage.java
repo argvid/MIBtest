@@ -26,8 +26,8 @@ public class AlienPage extends javax.swing.JFrame {
     }
 
     private void updateLabel(String anvandare) {
-        //uppdatera titeln med nytt namn
         label.setText("Välkommen till Jorden, " + anvandare);
+        System.out.print(anvandare);
     }
 
     /**
@@ -39,33 +39,43 @@ public class AlienPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label = new javax.swing.JLabel();
-        infoOmradesChefButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         checkBox = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        infoOmradesChefButton.setText("Se info om mitt områdes områdeschef");
-        infoOmradesChefButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Se info om mitt områdes områdeschef");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoOmradesChefButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(133, 226, 273, 29);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(60, 377, 0, 0);
+        getContentPane().add(passwordField);
+        passwordField.setBounds(169, 107, 188, 26);
 
         jLabel2.setText("Ändra Lösenord:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(48, 109, 103, 16);
 
-        okButton.setText("ok");
+        okButton.setText("Ändra");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(okButton);
+        okButton.setBounds(363, 104, 94, 29);
 
         checkBox.setText("Visa Lösenord");
         checkBox.addActionListener(new java.awt.event.ActionListener() {
@@ -73,67 +83,59 @@ public class AlienPage extends javax.swing.JFrame {
                 checkBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(checkBox);
+        checkBox.setBounds(203, 139, 126, 23);
 
+<<<<<<< Updated upstream
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        jLabel4.setText("Alien");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(210, 20, 200, 50);
+
+        label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/grass-green-color-solid-background-1920x1080.png")); // NOI18N
+        getContentPane().add(label);
+        label.setBounds(0, 0, 550, 390);
+=======
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(infoOmradesChefButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(passwordField)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1))
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(okButton))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(infoOmradesChefButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkBox)))
-                .addGap(70, 70, 70)
+                .addGap(32, 32, 32)
+                .addComponent(label, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addGap(145, 145, 145)
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(55, 55, 55))
         );
+>>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void infoOmradesChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoOmradesChefButtonActionPerformed
-//Knapp till att se information
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
         new infoOmradesChef(idb, anvandare).setVisible(true);
-    }//GEN-LAST:event_infoOmradesChefButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        //Uppdatera lösenord vid klick
+        // TODO add your handling code here:
         try {
             String losenord = new String(passwordField.getPassword());
             Validation validation = new Validation(losenord);
@@ -149,7 +151,7 @@ public class AlienPage extends javax.swing.JFrame {
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-//checkbox för att se lösenordet i text
+        // TODO add your handling code here:
         if (checkBox.isSelected()) {
             passwordField.setEchoChar((char) 0);
         } else {
@@ -194,9 +196,10 @@ public class AlienPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox checkBox;
-    private javax.swing.JButton infoOmradesChefButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel label;
     private javax.swing.JButton okButton;
     private javax.swing.JPasswordField passwordField;

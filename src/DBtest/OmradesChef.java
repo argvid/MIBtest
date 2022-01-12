@@ -25,7 +25,6 @@ public class OmradesChef extends javax.swing.JFrame {
     }
     private void updateAgentLabel()
     {
-        //Uppdatera titeln med vem som är områdeschef
         try{
             String agentFraga = "SELECT namn from agent inner join omradeschef on agent.Agent_ID = omradeschef.Agent_ID inner join omrade on agent.Omrade = omrade.Omrades_ID where omrade.Benamning = '"+omrade+"'";
             String omradesChef = idb.fetchSingle(agentFraga);
