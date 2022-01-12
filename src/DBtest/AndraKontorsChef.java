@@ -22,7 +22,6 @@ public class AndraKontorsChef extends javax.swing.JFrame {
     }
 
 private void fillCmb() {
-    //Fyll comboboxen med agenter
         try {
             String agentFraga = "SELECT namn FROM agent";
             ArrayList<String> agentLista = new ArrayList<String>();
@@ -30,7 +29,6 @@ private void fillCmb() {
             for (String status : agentLista) {
                 agentCmb.addItem(status);
             }
-            //Fyll den andra comboboxen med kontor
             String kontorFraga = "SELECT kontorsbeteckning FROM kontorschef";
             ArrayList<String> kontorLista = new ArrayList<String>();
             kontorLista = idb.fetchColumn(kontorFraga);
@@ -87,7 +85,7 @@ private void fillCmb() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        //Knapp för att uppdatera
+        // TODO add your handling code here:
         try{
             String agent = agentCmb.getSelectedItem().toString();
             String kontor = kontorCmb.getSelectedItem().toString();

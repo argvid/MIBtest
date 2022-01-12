@@ -22,14 +22,12 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
     private static InfDB idb;
     private String enData;
     private String valdAlien;
-    private String ras;
 
     public UpdateraAlienInf(InfDB iidb) {
         initComponents();
         idb = iidb;
         fillAlienCmb();
         fillTextFields();
-        firstCmb();
 
     }
 
@@ -61,6 +59,7 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
         regField = new javax.swing.JTextField();
         telField = new javax.swing.JTextField();
         platsField = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
         namnField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -68,21 +67,34 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         ansCmb = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        rasCmb = new javax.swing.JComboBox<>();
-        extraRasField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        extraRasLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         alienCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alienCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(alienCmb);
+        alienCmb.setBounds(310, 60, 135, 27);
+        getContentPane().add(losenordField);
+        losenordField.setBounds(252, 127, 165, 26);
+        getContentPane().add(regField);
+        regField.setBounds(252, 204, 165, 26);
+        getContentPane().add(telField);
+        telField.setBounds(252, 236, 165, 26);
+        getContentPane().add(platsField);
+        platsField.setBounds(252, 274, 165, 26);
+        getContentPane().add(idField);
+        idField.setBounds(252, 312, 165, 26);
+        getContentPane().add(namnField);
+        namnField.setBounds(252, 350, 165, 26);
 
         jButton1.setText("Uppdatera");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,123 +102,49 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(258, 412, 108, 29);
 
-        jLabel1.setText("Lösenord:");
+        jLabel1.setText("Lösenord :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(136, 132, 66, 16);
 
-        jLabel2.setText("Ansvarig agent:");
+        jLabel2.setText("Ansvarig agent :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(100, 169, 102, 16);
 
-        jLabel3.setText("Registrerad:");
+        jLabel3.setText("Registrerad :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(128, 209, 79, 16);
 
-        jLabel4.setText("Telefonnummer:");
+        jLabel4.setText("Telefonnummer :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(100, 241, 107, 16);
 
-        jLabel5.setText("Plats:");
+        jLabel5.setText("Plats :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(169, 274, 38, 26);
 
-        jLabel7.setText("Namn");
+        jLabel6.setText("Alien ID :");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(149, 322, 58, 16);
 
-        jLabel8.setText("Ras:");
+        jLabel7.setText("Namn :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(162, 360, 45, 16);
 
-        rasCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boglodite", "Worm", "Squid" }));
-        rasCmb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rasCmbActionPerformed(evt);
-            }
-        });
+        getContentPane().add(ansCmb);
+        ansCmb.setBounds(252, 165, 165, 27);
 
-        extraRasLabel.setText("...");
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("Uppdatera info för Alien :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(60, 60, 235, 22);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(146, 146, 146)
-                            .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(167, 167, 167)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(extraRasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(extraRasField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9)
-                                    .addGap(37, 37, 37)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(namnField)
-                            .addComponent(losenordField)
-                            .addComponent(regField)
-                            .addComponent(telField)
-                            .addComponent(platsField)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ansCmb, 0, 165, Short.MAX_VALUE))
-                        .addGap(37, 37, 37))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(losenordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ansCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(regField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(platsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel7)
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(extraRasField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(extraRasLabel))))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 0, 590, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,6 +152,7 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
     private void alienCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienCmbActionPerformed
         // TODO add your handling code here:
         valdAlien = alienCmb.getSelectedItem().toString();
+        System.out.println(valdAlien);
         fillTextFields();
     }//GEN-LAST:event_alienCmbActionPerformed
 
@@ -237,9 +176,10 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Ditt nya lösenord måste vara mindre än 7 tecken");
             }
             String ansvarig = ansCmb.getSelectedItem().toString();
-            String ansFraga = "SELECT agent_ID FROM agent where namn = '" + ansvarig + "'";
+            String ansFraga = "SELECT agent_ID FROM agent where namn = '"+ansvarig+"'";
             String ansvarigAgentID = idb.fetchSingle(ansFraga);
             //ta ut id:t från den agent som är ansvarig för att få in rätt i databasen
+            System.out.println(ansvarigAgentID);
 
             String reg = regField.getText();
             String plats = platsField.getText();
@@ -247,8 +187,7 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
             String platsIDFraga = "SELECT Plats_ID from plats inner join alien a on plats.Plats_ID = a.Plats WHERE Benamning = '" + plats + "' LIMIT 1";
             String platsID = idb.fetchSingle(platsIDFraga);
 
-            String idFraga = "Select Alien_ID FROM alien where namn = '" + valdAlien + "'";
-            String id = idb.fetchSingle(idFraga);
+            String id = idField.getText();
             String tel = telField.getText();
             Validation validering = new Validation(losenord);
             boolean test = validering.testaString(losenord);
@@ -258,80 +197,24 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
             Validation validering3 = new Validation(reg);
             boolean test3 = validering3.testaString(reg);
 
+            Validation validering4 = new Validation(id);
+            boolean test4 = validering4.testaString(id);
+            
             Validation validering5 = new Validation(tel);
             boolean test5 = validering5.testaString(tel);
-
+            
             Validation validering6 = new Validation(namn);
             boolean test6 = validering6.testaString(namn);
-
-            if (test == true && test2 == true && test3 == true && test5 == true && test6 == true) {
-                String updateraAlienFraga = "UPDATE alien SET Registreringsdatum = '" + reg + "', Losenord = '" + losenord + "',\n"
-                        + "Namn = '" + namn + "', Telefon = '" + tel + "', Plats = '" + platsID + "', Ansvarig_Agent = '" + ansvarigAgentID + "' where namn = '" + namn + "'";
-                idb.update(updateraAlienFraga);
-            }
-            ras = rasCmb.getSelectedItem().toString();
-            switch (ras) {
-                case "Squid":
-
-                    String antal_armar = extraRasField.getText();
-
-                    Validation validering7 = new Validation(antal_armar);
-                    boolean test7 = validering7.kollaInt(antal_armar);
-                    if (test5 == true) {
-                        String rasFraga = "UPDATE Squid SET antal_armar = '" + antal_armar + "' where Alien_ID = '" + id + "'";
-                        idb.update(rasFraga);
-                    }
-                    break;
-                case "Boglodite":
-
-                    String antal_boogies = extraRasField.getText();
-
-                    Validation validering8 = new Validation(antal_boogies);
-                    boolean test8 = validering8.kollaInt(antal_boogies);
-                    if (test6 == true) {
-                        System.out.println(id);
-                        String rasFraga = "UPDATE boglodite SET antal_boogies = '" + antal_boogies + "' where Alien_ID = '" + id + "'";
-                        idb.update(rasFraga);
-                    }
-                    break;
-                case "Worm":
-                    String rasFraga = "UPDATE worm set Alien_ID ='" + id + "'";
-                    idb.update(rasFraga);
-                    break;
-                default:
-                    break;
+            
+            if(test == true && test2 == true && test3 == true && test4 == true && test5 == true && test6 == true){
+            String updateraAlienFraga = "UPDATE alien SET Alien_ID = '" + id + "', Registreringsdatum = '" + reg + "', Losenord = '" + losenord + "',\n"
+                    + "Namn = '" + namn + "', Telefon = '" + tel + "', Plats = '" + platsID + "', Ansvarig_Agent = '" + ansvarigAgentID + "' where namn = '" + namn + "'";
+            idb.update(updateraAlienFraga);
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void firstCmb() {
-        extraRasLabel.setText("Antal Boogies");
-        extraRasLabel.setVisible(true);
-        extraRasField.setVisible(true);
-    }
-    private void rasCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rasCmbActionPerformed
-        // TODO add your handling code here:
-        ras = rasCmb.getSelectedItem().toString();
-        switch (ras) {
-            case "Squid":
-                extraRasLabel.setText("Antal Armar");
-                extraRasLabel.setVisible(true);
-                extraRasField.setVisible(true);
-                break;
-            case "Boglodite":
-                extraRasLabel.setText("Antal Boogies");
-                extraRasLabel.setVisible(true);
-                extraRasField.setVisible(true);
-                break;
-            case "Worm":
-                extraRasLabel.setVisible(false);
-                extraRasField.setVisible(false);
-                break;
-            default:
-                break;
-        }
-    }//GEN-LAST:event_rasCmbActionPerformed
     private void fillTextFields() {
         try {
 
@@ -345,15 +228,16 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                 while (i <= varden.size()) {
                     if (i == 1) {
                         losenordField.setText(enData);
-                    }
-                    if (i == 2) {
+                    }                    
+                    if(i == 2){
                         ArrayList<String> agentNamn = new ArrayList<String>();
                         String ansAgentFraga = "SELECT namn FROM agent ORDER BY namn ASC";
                         agentNamn = idb.fetchColumn(ansAgentFraga);
-                        for (String namn : agentNamn) {
+                        for(String namn: agentNamn)
+                        {
                             ansCmb.addItem(namn);
                         }
-
+                        
                     }
                     if (i == 3) {
                         regField.setText(enData);
@@ -367,6 +251,9 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                                 + "where Plats = '" + enData + "' LIMIT 1";
                         String plats = idb.fetchSingle(platsFraga);
                         platsField.setText(plats);
+                    }
+                    if (i == 6) {
+                        idField.setText(enData);
                     }
 
                     break;
@@ -418,21 +305,20 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> alienCmb;
     private javax.swing.JComboBox<String> ansCmb;
-    private javax.swing.JTextField extraRasField;
-    private javax.swing.JLabel extraRasLabel;
+    private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField losenordField;
     private javax.swing.JTextField namnField;
     private javax.swing.JTextField platsField;
-    private javax.swing.JComboBox<String> rasCmb;
     private javax.swing.JTextField regField;
     private javax.swing.JTextField telField;
     // End of variables declaration//GEN-END:variables
