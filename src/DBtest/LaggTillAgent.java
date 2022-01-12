@@ -46,90 +46,71 @@ public class LaggTillAgent extends javax.swing.JFrame {
         omradeCmb = new javax.swing.JComboBox<>();
         adminCmb = new javax.swing.JComboBox<>();
         okButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         losenField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 losenFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(losenField);
+        losenField.setBounds(201, 86, 157, 26);
 
         namnField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        namnField.setText("Agent ");
+        getContentPane().add(namnField);
+        namnField.setBounds(201, 130, 157, 26);
+        getContentPane().add(telField);
+        telField.setBounds(201, 174, 157, 26);
 
         jLabel1.setText("Lösenord:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(90, 90, 62, 16);
 
         jLabel2.setText("Namn:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(110, 130, 41, 16);
 
         jLabel3.setText("Telefonnr:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(90, 180, 64, 16);
 
         jLabel4.setText("Område:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(100, 220, 53, 16);
 
         jLabel5.setText("Admin:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(110, 260, 45, 16);
+
+        getContentPane().add(omradeCmb);
+        omradeCmb.setBounds(201, 218, 157, 27);
 
         adminCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nej", "Ja" }));
+        getContentPane().add(adminCmb);
+        adminCmb.setBounds(200, 260, 157, 27);
 
-        okButton.setText("Ok");
+        okButton.setText("Lägg till");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(okButton);
+        okButton.setBounds(153, 308, 93, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(namnField)
-                            .addComponent(losenField)
-                            .addComponent(telField)
-                            .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(adminCmb, 0, 157, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(losenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(omradeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(adminCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(okButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel6.setText("Registrera ny Agent");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(86, 25, 249, 30);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 440, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,6 +229,8 @@ public class LaggTillAgent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField losenField;
     private javax.swing.JTextField namnField;
     private javax.swing.JButton okButton;

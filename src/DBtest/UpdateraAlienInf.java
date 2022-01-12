@@ -70,14 +70,31 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         ansCmb = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         alienCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alienCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(alienCmb);
+        alienCmb.setBounds(310, 60, 135, 27);
+        getContentPane().add(losenordField);
+        losenordField.setBounds(252, 127, 165, 26);
+        getContentPane().add(regField);
+        regField.setBounds(252, 204, 165, 26);
+        getContentPane().add(telField);
+        telField.setBounds(252, 236, 165, 26);
+        getContentPane().add(platsField);
+        platsField.setBounds(252, 274, 165, 26);
+        getContentPane().add(idField);
+        idField.setBounds(252, 312, 165, 26);
+        getContentPane().add(namnField);
+        namnField.setBounds(252, 350, 165, 26);
 
         jButton1.setText("Uppdatera");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,90 +102,49 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(258, 412, 108, 29);
 
-        jLabel1.setText("Lösenord:");
+        jLabel1.setText("Lösenord :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(136, 132, 66, 16);
 
-        jLabel2.setText("Ansvarig agent:");
+        jLabel2.setText("Ansvarig agent :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(100, 169, 102, 16);
 
-        jLabel3.setText("Registrerad:");
+        jLabel3.setText("Registrerad :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(128, 209, 79, 16);
 
-        jLabel4.setText("Telefonnummer:");
+        jLabel4.setText("Telefonnummer :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(100, 241, 107, 16);
 
-        jLabel5.setText("Plats:");
+        jLabel5.setText("Plats :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(169, 274, 38, 26);
 
-        jLabel6.setText("Alien ID:");
+        jLabel6.setText("Alien ID :");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(149, 322, 58, 16);
 
-        jLabel7.setText("Namn");
+        jLabel7.setText("Namn :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(162, 360, 45, 16);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(losenordField)
-                    .addComponent(regField)
-                    .addComponent(telField)
-                    .addComponent(platsField)
-                    .addComponent(idField)
-                    .addComponent(namnField)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton1))
-                    .addComponent(ansCmb, 0, 165, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(losenordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(ansCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(regField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(platsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        getContentPane().add(ansCmb);
+        ansCmb.setBounds(252, 165, 165, 27);
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("Uppdatera info för Alien :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(60, 60, 235, 22);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 0, 590, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -338,6 +314,8 @@ public class UpdateraAlienInf extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField losenordField;
     private javax.swing.JTextField namnField;
     private javax.swing.JTextField platsField;
