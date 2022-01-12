@@ -28,6 +28,7 @@ public class AlienMellanDatum extends javax.swing.JFrame {
 
     private void fillTable() {
         try {
+            //Fyll tabellen med information
             ArrayList<String> aliens = new ArrayList<String>();
             String fraga = "select alien.namn from alien where Registreringsdatum between '" + forstaDatum + "' and '" + andraDatum + "';";
             aliens = idb.fetchColumn(fraga);
@@ -38,10 +39,6 @@ public class AlienMellanDatum extends javax.swing.JFrame {
             }
 
             table.setModel(model);
-            /*for(int i = 0; i < aliens.size(); i++){
-                model.addRow(new Object[] {String.valueOf((aliens.get(i)))});
-                System.out.println(aliens.get(i));
-            }*/
 
         } catch (Exception ex) {
             System.out.println(ex);

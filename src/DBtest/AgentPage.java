@@ -539,7 +539,6 @@ public class AgentPage extends javax.swing.JFrame {
             adminButton.setVisible(true);
         } else if (!admin) {
             adminButton.setVisible(false);
-
         }
     }
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed

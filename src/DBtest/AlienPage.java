@@ -26,8 +26,8 @@ public class AlienPage extends javax.swing.JFrame {
     }
 
     private void updateLabel(String anvandare) {
+        //uppdatera titeln med nytt namn
         label.setText("Välkommen till Jorden, " + anvandare);
-        System.out.print(anvandare);
     }
 
     /**
@@ -40,7 +40,7 @@ public class AlienPage extends javax.swing.JFrame {
     private void initComponents() {
 
         label = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        infoOmradesChefButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
@@ -51,10 +51,10 @@ public class AlienPage extends javax.swing.JFrame {
 
         label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jButton1.setText("Se info om mitt områdes områdeschef");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        infoOmradesChefButton.setText("Se info om mitt områdes områdeschef");
+        infoOmradesChefButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                infoOmradesChefButtonActionPerformed(evt);
             }
         });
 
@@ -91,7 +91,7 @@ public class AlienPage extends javax.swing.JFrame {
                         .addGap(118, 118, 118))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(infoOmradesChefButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -115,7 +115,7 @@ public class AlienPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jButton1))
+                        .addComponent(infoOmradesChefButton))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(checkBox)))
@@ -127,14 +127,13 @@ public class AlienPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
+    private void infoOmradesChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoOmradesChefButtonActionPerformed
+//Knapp till att se information
         new infoOmradesChef(idb, anvandare).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_infoOmradesChefButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+        //Uppdatera lösenord vid klick
         try {
             String losenord = new String(passwordField.getPassword());
             Validation validation = new Validation(losenord);
@@ -150,7 +149,7 @@ public class AlienPage extends javax.swing.JFrame {
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-        // TODO add your handling code here:
+//checkbox för att se lösenordet i text
         if (checkBox.isSelected()) {
             passwordField.setEchoChar((char) 0);
         } else {
@@ -195,7 +194,7 @@ public class AlienPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox checkBox;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton infoOmradesChefButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel label;

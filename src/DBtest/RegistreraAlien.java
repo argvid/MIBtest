@@ -185,6 +185,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ansvarigAgentFieldActionPerformed
     private void fillComboBox() {
+        //fyll comboboxen med platser
         try {
             ArrayList<String> platsLista = new ArrayList<String>();
             String platserFraga = "SELECT Benamning FROM plats";
@@ -204,8 +205,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         return Pattern.matches(regex, input);
     }*/
     private void skickaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skickaButtonActionPerformed
-        // TODO add your handling code here:
-
+        //knapp för att registrera en alien
         try {
 
             //skapar ett unikt ID för en alien
@@ -230,21 +230,21 @@ public class RegistreraAlien extends javax.swing.JFrame {
             String platsensBenamning = comboBox.getSelectedItem().toString();
             String platsIDfraga = "SELECT plats_ID FROM plats WHERE Benamning = '" + platsensBenamning + "'";
             String platsen = idb.fetchSingle(platsIDfraga);
-            //String platsID = idb.fetchSingle(platsIDfraga);
+            //Validerar inputs från valideringsklassen
             Validation validering = new Validation(losenord_synlig);
             boolean test = validering.testaString(losenord_synlig);
-            System.out.println(test);
+
             Validation validering2 = new Validation(namn_synlig);
             boolean test2 = validering2.testaString(namn_synlig);
-            System.out.println(test2);
+
 
             Validation validering3 = new Validation(ansAgent);
             boolean test3 = validering3.testaString(ansAgent);
-            System.out.println(test3);
+
 
             Validation validering4 = new Validation(tel_synlig);
             boolean test4 = validering4.testaString(tel_synlig);
-            System.out.println(test4);
+
 
             if (test == true && test2 == true && test3 == true && test4 == true) {
                 String insertFraga = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('" + alienID_osynlig + "', '" + tid_osynlig + "', '" + losenord_synlig + "', '" + namn_synlig + "', '" + tel_synlig + "', '" + platsen + "', '" + agentID_synlig + "' )";
@@ -261,7 +261,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_losenFieldActionPerformed
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-        // TODO add your handling code here:
+//Visar lösenordet om det önskas
         if (checkBox.isSelected()) {
             losenField.setEchoChar((char) 0);
         } else {
