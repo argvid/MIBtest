@@ -120,7 +120,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_losenFieldActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-
+//knapp för att lägga till agenten
         try {
 
             //ta ut dagens datum i rätt form
@@ -143,6 +143,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
             } else if (adminStatus.equals("Nej")) {
                 adminStatus = "N";
             }
+            //Validerar alla fält från valideringsklassen
             Validation validering5 = new Validation(losenord);
             boolean rattLosenord = validering5.kollaLosen(losenord);
             
@@ -164,11 +165,6 @@ public class LaggTillAgent extends javax.swing.JFrame {
                 idb.insert(regAgentFraga);
                 setVisible(false);
             }
-            //skriv ut felmeddelanden + hjälp att rätta till fel
-            /*if (corAgent == false) {
-                JOptionPane.showMessageDialog(null, "Namnfältet måste börja med 'Agent'");
-
-            }*/
 
         } catch (HeadlessException | InfException ex) {
             System.out.println(ex);
@@ -177,6 +173,7 @@ public class LaggTillAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_okButtonActionPerformed
     private void fillCmb() {
         try {
+            //fyll comboboxen med områden
             String omradeFraga = "SELECT benamning FROM omrade";
             ArrayList<String> omradeLista = new ArrayList<String>();
             omradeLista = idb.fetchColumn(omradeFraga);

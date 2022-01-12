@@ -136,11 +136,12 @@ public class SeInformationAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agentCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentCmbActionPerformed
-        // TODO add your handling code here:
+//kallar på fillLabels för att uppdatera titlarna
         valdAgent = agentCmb.getSelectedItem().toString();
         fillLabels();
     }//GEN-LAST:event_agentCmbActionPerformed
     private void fillAgentCmb() {
+        //fyller comboboxen med agenter
         try {
             ArrayList<String> agenter = new ArrayList<String>();
             String alienFraga = "SELECT namn FROM agent";
