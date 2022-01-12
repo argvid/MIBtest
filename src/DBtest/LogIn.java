@@ -118,7 +118,7 @@ public class LogIn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
-        // TODO add your handling code here:  
+        //Knapp för att logga in  
         try {
             boolean agent = false;
             boolean alien = false;
@@ -126,6 +126,7 @@ public class LogIn extends javax.swing.JFrame {
             anvandareInput = textPane.getText();
             Validation validation = new Validation(anvandareInput);
             boolean test = validation.testaString(anvandareInput);
+            //Testar om fältet är ifyllt
             if (test) {
                 String inputLosenord = new String(passwordField.getPassword());
                 ArrayList<String> agenter = new ArrayList<String>();
@@ -143,6 +144,7 @@ public class LogIn extends javax.swing.JFrame {
                         agent = true;
                     }
                 }
+                //kollar om det är en alien som ska logga in
 
                 ArrayList<String> aliens = new ArrayList<String>();
                 String alienFraga = "SELECT namn FROM alien";
@@ -186,7 +188,7 @@ public class LogIn extends javax.swing.JFrame {
                         }
                     }
                 }
-
+                //kollar om lösenord stämmer, om inte något blivit true kommer ett felmeddelande
                 if (alien == false && agent == false && admin == false) {
                     JOptionPane.showMessageDialog(null, "Fel lösenord eller användarnamn!");
 
@@ -203,7 +205,7 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_textPaneComponentAdded
 
     private void checkBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxActionPerformed
-        // TODO add your handling code here:
+//checkbox för att se lösenordet
         if (checkBox.isSelected()) {
             passwordField.setEchoChar((char) 0);
         } else {
