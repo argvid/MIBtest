@@ -62,8 +62,13 @@ public class andraInfoAgent extends javax.swing.JFrame {
         omradeCmb = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         agentCmb = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        getContentPane().add(namnField);
+        namnField.setBounds(289, 241, 165, 26);
 
         jButton1.setText("Uppdatera");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,14 +76,28 @@ public class andraInfoAgent extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(218, 369, 108, 29);
 
         jLabel1.setText("Lösenord:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(166, 178, 62, 16);
+        getContentPane().add(losenordField);
+        losenordField.setBounds(289, 173, 165, 26);
 
         jLabel4.setText("Telefonnummer:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(125, 210, 103, 16);
+        getContentPane().add(telField);
+        telField.setBounds(289, 205, 165, 26);
 
-        jLabel7.setText("Namn");
+        jLabel7.setText("Namn :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(183, 246, 45, 16);
 
-        jLabel8.setText("Admin");
+        jLabel8.setText("Admin :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(179, 289, 49, 16);
 
         adminCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ja", "Nej" }));
         adminCmb.setToolTipText("");
@@ -87,71 +106,32 @@ public class andraInfoAgent extends javax.swing.JFrame {
                 adminCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(adminCmb);
+        adminCmb.setBounds(289, 285, 165, 27);
 
-        jLabel2.setText("Område");
+        getContentPane().add(omradeCmb);
+        omradeCmb.setBounds(289, 324, 165, 27);
+
+        jLabel2.setText("Område :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(171, 328, 57, 16);
 
         agentCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agentCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(agentCmb);
+        agentCmb.setBounds(318, 87, 165, 27);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(152, 152, 152))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel2))
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(agentCmb, 0, 165, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(losenordField, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                        .addComponent(telField)
-                        .addComponent(namnField)
-                        .addComponent(adminCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(107, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(agentCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(losenordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(adminCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(omradeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        jLabel3.setText("Ändra info för Agent :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(135, 91, 137, 16);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 580, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,7 +254,9 @@ public class andraInfoAgent extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField losenordField;

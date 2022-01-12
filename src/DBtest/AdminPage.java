@@ -50,10 +50,15 @@ public class AdminPage extends javax.swing.JFrame {
         seInformation = new javax.swing.JButton();
         andraOmradesChef = new javax.swing.JButton();
         andraKontorsChef = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getContentPane().add(label);
+        label.setBounds(670, 6, 394, 106);
 
         regAlienButton.setText("Registrera Alien");
         regAlienButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,6 +66,8 @@ public class AdminPage extends javax.swing.JFrame {
                 regAlienButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(regAlienButton);
+        regAlienButton.setBounds(99, 130, 463, 29);
 
         andraInfAlien.setText("Ändra information på Alien");
         andraInfAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +75,8 @@ public class AdminPage extends javax.swing.JFrame {
                 andraInfAlienActionPerformed(evt);
             }
         });
+        getContentPane().add(andraInfAlien);
+        andraInfAlien.setBounds(99, 177, 463, 29);
 
         laggTillAgentButton.setText("Registrera Agent");
         laggTillAgentButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +84,8 @@ public class AdminPage extends javax.swing.JFrame {
                 laggTillAgentButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(laggTillAgentButton);
+        laggTillAgentButton.setBounds(99, 224, 463, 29);
 
         andraAgentButton.setText("Ändra information på Agent");
         andraAgentButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +93,8 @@ public class AdminPage extends javax.swing.JFrame {
                 andraAgentButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(andraAgentButton);
+        andraAgentButton.setBounds(99, 271, 463, 29);
 
         taBortAlien.setText("Ta bort alien");
         taBortAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +102,8 @@ public class AdminPage extends javax.swing.JFrame {
                 taBortAlienActionPerformed(evt);
             }
         });
+        getContentPane().add(taBortAlien);
+        taBortAlien.setBounds(99, 365, 463, 29);
 
         taBortUtrustning.setText("Ta bort utrustning");
         taBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +111,8 @@ public class AdminPage extends javax.swing.JFrame {
                 taBortUtrustningActionPerformed(evt);
             }
         });
+        getContentPane().add(taBortUtrustning);
+        taBortUtrustning.setBounds(99, 459, 463, 29);
 
         geAdmin.setText("Ge Agent admin status");
         geAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +120,8 @@ public class AdminPage extends javax.swing.JFrame {
                 geAdminActionPerformed(evt);
             }
         });
+        getContentPane().add(geAdmin);
+        geAdmin.setBounds(99, 412, 463, 29);
 
         seInformation.setText("Se information på Agent");
         seInformation.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +129,8 @@ public class AdminPage extends javax.swing.JFrame {
                 seInformationActionPerformed(evt);
             }
         });
+        getContentPane().add(seInformation);
+        seInformation.setBounds(99, 318, 463, 29);
 
         andraOmradesChef.setText("Ändra områdeschef");
         andraOmradesChef.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +138,8 @@ public class AdminPage extends javax.swing.JFrame {
                 andraOmradesChefActionPerformed(evt);
             }
         });
+        getContentPane().add(andraOmradesChef);
+        andraOmradesChef.setBounds(99, 506, 463, 29);
 
         andraKontorsChef.setText("Ändra kontorschef");
         andraKontorsChef.addActionListener(new java.awt.event.ActionListener() {
@@ -124,58 +147,18 @@ public class AdminPage extends javax.swing.JFrame {
                 andraKontorsChefActionPerformed(evt);
             }
         });
+        getContentPane().add(andraKontorsChef);
+        andraKontorsChef.setBounds(99, 553, 463, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(taBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(taBortUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(andraAgentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
-                            .addComponent(regAlienButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(andraInfAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(laggTillAgentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(geAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(seInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(andraOmradesChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(andraKontorsChef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(regAlienButton)
-                .addGap(18, 18, 18)
-                .addComponent(andraInfAlien)
-                .addGap(18, 18, 18)
-                .addComponent(laggTillAgentButton)
-                .addGap(18, 18, 18)
-                .addComponent(andraAgentButton)
-                .addGap(18, 18, 18)
-                .addComponent(seInformation)
-                .addGap(18, 18, 18)
-                .addComponent(taBortAlien)
-                .addGap(18, 18, 18)
-                .addComponent(geAdmin)
-                .addGap(18, 18, 18)
-                .addComponent(taBortUtrustning)
-                .addGap(18, 18, 18)
-                .addComponent(andraOmradesChef)
-                .addGap(18, 18, 18)
-                .addComponent(andraKontorsChef)
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
+        jLabel1.setText("Administratör");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(194, 29, 379, 83);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 680, 670);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,6 +255,8 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton andraKontorsChef;
     private javax.swing.JButton andraOmradesChef;
     private javax.swing.JButton geAdmin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel label;
     private javax.swing.JButton laggTillAgentButton;
     private javax.swing.JButton regAlienButton;

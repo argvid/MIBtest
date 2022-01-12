@@ -53,12 +53,16 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         checkBox = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        getContentPane().add(label);
+        label.setBounds(502, 86, 79, 0);
 
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        textPane.setBorder(null);
         textPane.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 textPaneComponentAdded(evt);
@@ -66,18 +70,29 @@ public class LogIn extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(textPane);
 
-        button.setText("ok");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(230, 160, 173, 20);
+
+        button.setText("Logga in");
         button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(button);
+        button.setBounds(270, 270, 98, 29);
 
         jLabel1.setText("Användarnamn:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(90, 160, 98, 16);
 
         jLabel2.setText("Lösenord:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(130, 220, 87, 16);
 
-        passwordField.setBorder(null);
+        passwordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(passwordField);
+        passwordField.setBounds(230, 220, 173, 18);
 
         checkBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         checkBox.setText("Visa Lösenord");
@@ -86,57 +101,18 @@ public class LogIn extends javax.swing.JFrame {
                 checkBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(checkBox);
+        checkBox.setBounds(410, 220, 120, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(button)
-                        .addGap(45, 45, 45)
-                        .addComponent(checkBox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(29, 29, 29)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                            .addComponent(passwordField))))
-                .addGap(53, 53, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(label)
-                        .addGap(54, 54, 54))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button)
-                    .addComponent(checkBox))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Al Nile", 1, 36)); // NOI18N
+        jLabel4.setText("MIB Skandinavien");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(160, 50, 320, 50);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/cyan-blue-colour.jpeg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 670, 440);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +252,8 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label;
     private javax.swing.JPasswordField passwordField;

@@ -40,8 +40,14 @@ public class TaBortUtrustning extends javax.swing.JFrame {
 
         utrustningCmb = new javax.swing.JComboBox<>();
         taBortButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        getContentPane().add(utrustningCmb);
+        utrustningCmb.setBounds(104, 108, 117, 27);
 
         taBortButton.setText("Ta bort");
         taBortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,27 +55,18 @@ public class TaBortUtrustning extends javax.swing.JFrame {
                 taBortButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(taBortButton);
+        taBortButton.setBounds(281, 107, 89, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(utrustningCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(taBortButton)
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(utrustningCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taBortButton))
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setText("Ta bort utrustning");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(130, 30, 250, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 510, 230);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,6 +120,8 @@ public class TaBortUtrustning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton taBortButton;
     private javax.swing.JComboBox<String> utrustningCmb;
     // End of variables declaration//GEN-END:variables

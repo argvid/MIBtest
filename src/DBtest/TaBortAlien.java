@@ -42,8 +42,14 @@ public class TaBortAlien extends javax.swing.JFrame {
 
         alienCmb = new javax.swing.JComboBox<>();
         taBortButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        getContentPane().add(alienCmb);
+        alienCmb.setBounds(100, 87, 120, 40);
 
         taBortButton.setText("Ta bort");
         taBortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -51,27 +57,18 @@ public class TaBortAlien extends javax.swing.JFrame {
                 taBortButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(taBortButton);
+        taBortButton.setBounds(250, 90, 89, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(taBortButton)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alienCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taBortButton))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setText("Ta bort Alien");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(140, 20, 200, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 480, 210);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,6 +135,8 @@ public static void main(String args[]) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> alienCmb;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton taBortButton;
     // End of variables declaration//GEN-END:variables
 }

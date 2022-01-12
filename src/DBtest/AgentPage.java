@@ -56,7 +56,6 @@ public class AgentPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         label = new javax.swing.JLabel();
-        andraLosenordField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         andraLosenordButton = new javax.swing.JButton();
@@ -85,6 +84,9 @@ public class AgentPage extends javax.swing.JFrame {
         omradeButton = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         adminButton = new javax.swing.JButton();
+        andraLosenordField = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -94,6 +96,7 @@ public class AgentPage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         label.setFont(new java.awt.Font("Sitka Banner", 3, 24)); // NOI18N
         label.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -103,39 +106,51 @@ public class AgentPage extends javax.swing.JFrame {
                 labelInputMethodTextChanged(evt);
             }
         });
+        getContentPane().add(label);
+        label.setBounds(210, 10, 294, 32);
 
-        andraLosenordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraLosenordFieldActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Ändra lösenord :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(140, 80, 104, 16);
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(6, 0, 0, 0);
 
-        jLabel1.setText("Ändra lösenord:");
-
-        andraLosenordButton.setText("OK");
+        andraLosenordButton.setText("Ändra");
         andraLosenordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 andraLosenordButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(andraLosenordButton);
+        andraLosenordButton.setBounds(500, 80, 81, 29);
 
-        jLabel3.setText("Lägg till ny utrustning:");
+        jLabel3.setText("Lägg till ny utrustning :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(100, 140, 148, 16);
+        getContentPane().add(utrustningField);
+        utrustningField.setBounds(290, 140, 140, 26);
 
-        utrustningButton.setText("OK");
+        utrustningButton.setText("Lägg till");
         utrustningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 utrustningButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(utrustningButton);
+        utrustningButton.setBounds(500, 140, 80, 29);
 
-        alienButton.setText(">");
+        alienButton.setText("Lägg till");
         alienButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alienButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(alienButton);
+        alienButton.setBounds(310, 200, 95, 29);
 
-        jLabel4.setText("Lägg till en ny Alien:");
+        jLabel4.setText("Lägg till en ny Alien :");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(120, 210, 133, 16);
 
         platsCmb.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
@@ -147,14 +162,24 @@ public class AgentPage extends javax.swing.JFrame {
                 platsCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(platsCmb);
+        platsCmb.setBounds(280, 280, 175, 27);
 
         rasCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "squid", "worm", "boglodite" }));
+        getContentPane().add(rasCmb);
+        rasCmb.setBounds(280, 430, 175, 27);
 
-        jLabel5.setText("Aliens på plats:");
+        jLabel5.setText("Visa Aliens på plats :");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(120, 280, 140, 16);
 
-        jLabel6.setText("Aliens som är ras:");
+        jLabel6.setText("Aliens som är av ras :");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(120, 430, 135, 16);
 
-        jLabel7.setText("Aliens registrerade mellan:");
+        jLabel7.setText("Visa Aliens registrerade mellan :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(50, 350, 210, 20);
 
         forstaDatum.setText("datum");
         forstaDatum.addActionListener(new java.awt.event.ActionListener() {
@@ -162,31 +187,43 @@ public class AgentPage extends javax.swing.JFrame {
                 forstaDatumActionPerformed(evt);
             }
         });
+        getContentPane().add(forstaDatum);
+        forstaDatum.setBounds(280, 350, 63, 26);
 
         andraDatum.setText("datum");
+        getContentPane().add(andraDatum);
+        andraDatum.setBounds(410, 350, 63, 26);
 
         jLabel8.setText("och");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(360, 350, 23, 16);
 
-        platsButton.setText(">");
+        platsButton.setText("Visa");
         platsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 platsButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(platsButton);
+        platsButton.setBounds(500, 430, 75, 29);
 
-        rasButton.setText(">");
+        rasButton.setText("Visa");
         rasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rasButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(rasButton);
+        rasButton.setBounds(500, 280, 75, 29);
 
-        registreradButton.setText(">");
+        registreradButton.setText("Visa");
         registreradButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registreradButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(registreradButton);
+        registreradButton.setBounds(500, 350, 75, 29);
 
         logOut.setText("Logga ut");
         logOut.addActionListener(new java.awt.event.ActionListener() {
@@ -194,27 +231,44 @@ public class AgentPage extends javax.swing.JFrame {
                 logOutActionPerformed(evt);
             }
         });
+        getContentPane().add(logOut);
+        logOut.setBounds(20, 660, 99, 29);
 
-        specAlienButton.setText(">");
+        specAlienButton.setText("Visa info");
         specAlienButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 specAlienButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(specAlienButton);
+        specAlienButton.setBounds(500, 500, 80, 29);
 
-        jLabel9.setText("Se info om specifik alien:");
+        jLabel9.setText("Se info om specifik alien :");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(100, 500, 170, 16);
+        getContentPane().add(specAlienTextBox);
+        specAlienTextBox.setBounds(280, 500, 179, 26);
 
-        jLabel10.setText("Se områdeschef över :");
+        jLabel10.setText("Se områdeschef över  :");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(120, 580, 142, 16);
 
-        omradeButton.setText(">");
+        getContentPane().add(omradeCmb);
+        omradeCmb.setBounds(280, 580, 179, 27);
+
+        omradeButton.setText("Visa");
         omradeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 omradeButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(omradeButton);
+        omradeButton.setBounds(500, 580, 75, 29);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel11.setText("(Format: åååå-mm-dd)");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(270, 370, 88, 20);
 
         adminButton.setText("Adminfunktioner");
         adminButton.addActionListener(new java.awt.event.ActionListener() {
@@ -222,145 +276,20 @@ public class AgentPage extends javax.swing.JFrame {
                 adminButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(adminButton);
+        adminButton.setBounds(130, 660, 151, 29);
+        getContentPane().add(andraLosenordField);
+        andraLosenordField.setBounds(290, 80, 140, 26);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(41, 41, 41))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(9, 9, 9)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(utrustningField, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                                    .addComponent(andraLosenordField))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(utrustningButton, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                    .addComponent(andraLosenordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(alienButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(71, 71, 71)
-                                .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rasButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(85, 85, 85)
-                                .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(platsButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(specAlienTextBox)
-                                                .addComponent(omradeCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(specAlienButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(omradeButton, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel8)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(registreradButton))))))
-                        .addGap(36, 36, 36)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(logOut)
-                        .addGap(18, 18, 18)
-                        .addComponent(adminButton)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(andraLosenordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(andraLosenordButton))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(utrustningField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(utrustningButton))
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(alienButton)
-                            .addComponent(jLabel4))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(logOut)
-                            .addComponent(adminButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(platsCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(platsButton))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rasCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(rasButton))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(forstaDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(andraDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(registreradButton))
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(specAlienButton)
-                            .addComponent(specAlienTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(omradeCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(omradeButton)))))
-        );
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        jLabel12.setText("(Namn)");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(290, 530, 53, 16);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/Red_Color.jpeg")); // NOI18N
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(0, 0, 690, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -370,10 +299,6 @@ public class AgentPage extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_labelInputMethodTextChanged
-
-    private void andraLosenordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLosenordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_andraLosenordFieldActionPerformed
 
     private void andraLosenordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLosenordButtonActionPerformed
 
@@ -599,6 +524,8 @@ public class AgentPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -52,115 +52,85 @@ public class SeInformationAgent extends javax.swing.JFrame {
         omradeLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         losenLabel = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         agentCmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agentCmbActionPerformed(evt);
             }
         });
+        getContentPane().add(agentCmb);
+        agentCmb.setBounds(270, 40, 135, 27);
 
         jLabel1.setText("Agent ID:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(150, 130, 59, 16);
 
         jLabel2.setText("Namn:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(170, 160, 41, 16);
 
         jLabel3.setText("Telefon:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(160, 190, 51, 16);
 
         jLabel4.setText("Anstallningsdatum:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(90, 220, 123, 16);
 
         jLabel5.setText("Administrator:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(120, 260, 91, 16);
 
         jLabel6.setText("Område:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(157, 332, 53, 16);
 
         agentIDLabel.setText("...");
+        getContentPane().add(agentIDLabel);
+        agentIDLabel.setBounds(280, 130, 158, 16);
 
         telLabel.setText("...");
+        getContentPane().add(telLabel);
+        telLabel.setBounds(280, 190, 158, 16);
 
         namnLabel.setText("...");
+        getContentPane().add(namnLabel);
+        namnLabel.setBounds(280, 160, 158, 16);
 
         datumLabel.setText("...");
+        getContentPane().add(datumLabel);
+        datumLabel.setBounds(280, 220, 158, 16);
 
         adminLabel.setText("...");
+        getContentPane().add(adminLabel);
+        adminLabel.setBounds(280, 260, 158, 16);
 
         omradeLabel.setText("...");
+        getContentPane().add(omradeLabel);
+        omradeLabel.setBounds(280, 332, 158, 16);
 
         jLabel7.setText("Lösenord:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(148, 298, 62, 16);
 
         losenLabel.setText("...");
+        getContentPane().add(losenLabel);
+        losenLabel.setBounds(280, 298, 158, 16);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(agentCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(agentIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(namnLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(telLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(datumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(adminLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(omradeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                            .addComponent(losenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(111, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(agentCmb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(agentIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(namnLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(telLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(datumLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(adminLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(losenLabel))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(omradeLabel))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel9.setText("Visa info om Agent :");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(70, 40, 187, 22);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/rainbow-colors-153443_1280.png")); // NOI18N
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, 0, 540, 410);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -274,6 +244,8 @@ public class SeInformationAgent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel losenLabel;
     private javax.swing.JLabel namnLabel;
     private javax.swing.JLabel omradeLabel;

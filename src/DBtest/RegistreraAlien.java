@@ -53,36 +53,55 @@ public class RegistreraAlien extends javax.swing.JFrame {
         comboBox = new javax.swing.JComboBox<>();
         losenField = new javax.swing.JPasswordField();
         checkBox = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel1.setText("Lösenord:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(120, 90, 62, 16);
 
         jLabel2.setText("Telefon:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(130, 170, 51, 16);
 
         jLabel3.setText("Namn:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(140, 130, 41, 16);
 
         jLabel4.setText("Plats:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(163, 267, 34, 16);
 
         jLabel5.setText("Ansvarig Agent:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(90, 210, 100, 20);
 
         namnField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namnFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(namnField);
+        namnField.setBounds(270, 120, 206, 26);
 
         telField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(telField);
+        telField.setBounds(270, 170, 206, 26);
 
         ansvarigAgentField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ansvarigAgentFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(ansvarigAgentField);
+        ansvarigAgentField.setBounds(270, 210, 206, 26);
 
         skickaButton.setText("OK");
         skickaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,12 +109,19 @@ public class RegistreraAlien extends javax.swing.JFrame {
                 skickaButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(skickaButton);
+        skickaButton.setBounds(239, 317, 75, 29);
+
+        getContentPane().add(comboBox);
+        comboBox.setBounds(267, 263, 130, 27);
 
         losenField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 losenFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(losenField);
+        losenField.setBounds(270, 80, 206, 26);
 
         checkBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         checkBox.setText("Visa Lösenord");
@@ -104,71 +130,18 @@ public class RegistreraAlien extends javax.swing.JFrame {
                 checkBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(checkBox);
+        checkBox.setBounds(480, 80, 140, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(44, 44, 44)
-                                .addComponent(losenField))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(55, 55, 55)
-                                .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(61, 61, 61)
-                                .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ansvarigAgentField, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(checkBox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(skickaButton)))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(losenField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkBox))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(namnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(telField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(ansvarigAgentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(6, 6, 6)
-                .addComponent(skickaButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel6.setText("Registrera ny Alien");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(210, 20, 270, 40);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("/Users/dator/Desktop/Red_Color.jpeg")); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 690, 380);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -317,6 +290,8 @@ public class RegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField losenField;
     private javax.swing.JTextField namnField;
     private javax.swing.JButton skickaButton;
